@@ -1,0 +1,3687 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2572ec95c8182556fb718ab8f3b68ca7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css"/>
+</head>
+<body>
+    
+    
+     <div style="position: fixed; bottom: 50px; left: 50px; z-index:9999; font-size: 14px;">
+    <p><span style="background-color: red; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Community</p>
+<p><span style="background-color: gray; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Cost of Living</p>
+<p><span style="background-color: green; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Climate</p>
+<p><span style="background-color: pink; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Disability Rights</p>
+<p><span style="background-color: blue; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Youth</p>
+<p><span style="background-color: beige; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Pollution</p>
+<p><span style="background-color: orange; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Independents</p>
+<p><span style="background-color: purple; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>BIPOC Rights</p>
+<p><span style="background-color: darkred; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>Black & Asian</p>
+     </div>
+     
+    
+            <div class="folium-map" id="map_2572ec95c8182556fb718ab8f3b68ca7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2572ec95c8182556fb718ab8f3b68ca7 = L.map(
+                "map_2572ec95c8182556fb718ab8f3b68ca7",
+                {
+                    center: [54.103, -2.912],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a9e4778602799807b2d4d122d89cfa8e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 6, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_a9e4778602799807b2d4d122d89cfa8e.addTo(map_2572ec95c8182556fb718ab8f3b68ca7);
+        
+    
+            map_2572ec95c8182556fb718ab8f3b68ca7.fitBounds(
+                [[47.959999905, -7.57216793459], [61, 1.68153079591]],
+                {}
+            );
+        
+    
+            var feature_group_412cbf8c265685175724af168bbf71f6 = L.featureGroup(
+                {}
+            );
+        
+    
+            var marker_355b9f149a40805e6b3603740cc40363 = L.marker(
+                [51.230751, -2.320096],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_f2a1270230601ad789de1dea077d0bbd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_355b9f149a40805e6b3603740cc40363.setIcon(icon_f2a1270230601ad789de1dea077d0bbd);
+        
+    
+        var popup_84c46f5c51cc2c54abc58d72f5687bcc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b49452d2fd93d9041cb20ce7542d8d28 = $(`<div id="html_b49452d2fd93d9041cb20ce7542d8d28" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Frome</a><br><br>Community<br><br>Contact:<br>Jennie Lachs<br>jenniferlachs@gmail.com</div>`)[0];
+                popup_84c46f5c51cc2c54abc58d72f5687bcc.setContent(html_b49452d2fd93d9041cb20ce7542d8d28);
+            
+        
+
+        marker_355b9f149a40805e6b3603740cc40363.bindPopup(popup_84c46f5c51cc2c54abc58d72f5687bcc)
+        ;
+
+        
+    
+    
+            marker_355b9f149a40805e6b3603740cc40363.bindTooltip(
+                `<div>
+                     Frome
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6eb5287ecd8f23e99f772e8c0b699015 = L.marker(
+                [52.9540223, -1.1549892],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_6c8c1a1541bcbf9714ba68f72acda516 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "sterling-sign", "iconColor": "white", "markerColor": "gray", "prefix": "fa"}
+            );
+            marker_6eb5287ecd8f23e99f772e8c0b699015.setIcon(icon_6c8c1a1541bcbf9714ba68f72acda516);
+        
+    
+        var popup_e2ce4c160ea1e172006bb9d9dbb511b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a256f091737b01fd66bb9f7cbcbdf5fa = $(`<div id="html_a256f091737b01fd66bb9f7cbcbdf5fa" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Nottingham</a><br><br>Cost of Living<br><br>Contact:<br>Adam Pickering<br>adam.pickering@leftlion.co.uk</div>`)[0];
+                popup_e2ce4c160ea1e172006bb9d9dbb511b3.setContent(html_a256f091737b01fd66bb9f7cbcbdf5fa);
+            
+        
+
+        marker_6eb5287ecd8f23e99f772e8c0b699015.bindPopup(popup_e2ce4c160ea1e172006bb9d9dbb511b3)
+        ;
+
+        
+    
+    
+            marker_6eb5287ecd8f23e99f772e8c0b699015.bindTooltip(
+                `<div>
+                     Nottingham
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d3880f5210e5af0904b82bb334902b84 = L.marker(
+                [51.9174803, -0.4513266],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_fc065faa88a808eaef0e10b57bd9b3f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d3880f5210e5af0904b82bb334902b84.setIcon(icon_fc065faa88a808eaef0e10b57bd9b3f1);
+        
+    
+        var popup_a671e8ed6446410bf40e8944265d47cb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cf0533248d44da6740e3f2e0da74c27c = $(`<div id="html_cf0533248d44da6740e3f2e0da74c27c" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Luton / Marsh Farm  (COL Alliance)</a><br><br>Community<br><br>Contact:<br>Rob Goodwin<br>nan</div>`)[0];
+                popup_a671e8ed6446410bf40e8944265d47cb.setContent(html_cf0533248d44da6740e3f2e0da74c27c);
+            
+        
+
+        marker_d3880f5210e5af0904b82bb334902b84.bindPopup(popup_a671e8ed6446410bf40e8944265d47cb)
+        ;
+
+        
+    
+    
+            marker_d3880f5210e5af0904b82bb334902b84.bindTooltip(
+                `<div>
+                     Luton / Marsh Farm 
+(COL Alliance)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8ed6435de421eae5712c61e059c3665f = L.marker(
+                [50.7487635, -2.3444786],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_aea1be67c92008b5ab37fd112a82d926 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "wheelchair", "iconColor": "white", "markerColor": "pink", "prefix": "fa"}
+            );
+            marker_8ed6435de421eae5712c61e059c3665f.setIcon(icon_aea1be67c92008b5ab37fd112a82d926);
+        
+    
+        var popup_23258818b33a0e385fce77a82db7e48e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_11c9197b470bb752e00ea79b152a58fd = $(`<div id="html_11c9197b470bb752e00ea79b152a58fd" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Dorset</a><br><br>Disability Rights<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_23258818b33a0e385fce77a82db7e48e.setContent(html_11c9197b470bb752e00ea79b152a58fd);
+            
+        
+
+        marker_8ed6435de421eae5712c61e059c3665f.bindPopup(popup_23258818b33a0e385fce77a82db7e48e)
+        ;
+
+        
+    
+    
+            marker_8ed6435de421eae5712c61e059c3665f.bindTooltip(
+                `<div>
+                     Dorset
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_606b1fb0f217d52a46ce510b5f6faaaf = L.marker(
+                [50.82259326, -0.139794942],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_8b10aac3783e2519f00a09492d21e8f0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_606b1fb0f217d52a46ce510b5f6faaaf.setIcon(icon_8b10aac3783e2519f00a09492d21e8f0);
+        
+    
+        var popup_9fed9b19bd296fbbfd5fedb82df7b832 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_30318cfde28d5526d04a25312e0da4a0 = $(`<div id="html_30318cfde28d5526d04a25312e0da4a0" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Brighton</a><br><br>Community<br><br>Contact:<br>Jan<br>nan</div>`)[0];
+                popup_9fed9b19bd296fbbfd5fedb82df7b832.setContent(html_30318cfde28d5526d04a25312e0da4a0);
+            
+        
+
+        marker_606b1fb0f217d52a46ce510b5f6faaaf.bindPopup(popup_9fed9b19bd296fbbfd5fedb82df7b832)
+        ;
+
+        
+    
+    
+            marker_606b1fb0f217d52a46ce510b5f6faaaf.bindTooltip(
+                `<div>
+                     Brighton
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8600acce3140ae89872fe62e01d3335b = L.marker(
+                [51.7355868, 0.4685497],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_30bc68b937897d62b15dae82990419b3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_8600acce3140ae89872fe62e01d3335b.setIcon(icon_30bc68b937897d62b15dae82990419b3);
+        
+    
+        var popup_36dd870b46633004430cbd6e9b96eadd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_856bd38adc508969e0a86f325bdbbf73 = $(`<div id="html_856bd38adc508969e0a86f325bdbbf73" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Chelmsford</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_36dd870b46633004430cbd6e9b96eadd.setContent(html_856bd38adc508969e0a86f325bdbbf73);
+            
+        
+
+        marker_8600acce3140ae89872fe62e01d3335b.bindPopup(popup_36dd870b46633004430cbd6e9b96eadd)
+        ;
+
+        
+    
+    
+            marker_8600acce3140ae89872fe62e01d3335b.bindTooltip(
+                `<div>
+                     Chelmsford
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ca2336f3aff7eb50c0f034baa7642146 = L.marker(
+                [50.9105468, -1.4049018],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_11a04bca389cd1f67cd9d740cbae6ef6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ca2336f3aff7eb50c0f034baa7642146.setIcon(icon_11a04bca389cd1f67cd9d740cbae6ef6);
+        
+    
+        var popup_5fc001be3fc022820062e9b0bb7eb73e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c1688b304e8d84cf1086ccc7093fdd41 = $(`<div id="html_c1688b304e8d84cf1086ccc7093fdd41" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Southampton</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_5fc001be3fc022820062e9b0bb7eb73e.setContent(html_c1688b304e8d84cf1086ccc7093fdd41);
+            
+        
+
+        marker_ca2336f3aff7eb50c0f034baa7642146.bindPopup(popup_5fc001be3fc022820062e9b0bb7eb73e)
+        ;
+
+        
+    
+    
+            marker_ca2336f3aff7eb50c0f034baa7642146.bindTooltip(
+                `<div>
+                     Southampton
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_15654e535f67877d784e0cb40f9e799e = L.marker(
+                [51.059771, -1.310142],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_ff0a60412426dcb5d35157163b18f6e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_15654e535f67877d784e0cb40f9e799e.setIcon(icon_ff0a60412426dcb5d35157163b18f6e7);
+        
+    
+        var popup_45078775e7cae7d9299a82925b8cae68 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fd2764d3060e93f331897d2cb0c92a28 = $(`<div id="html_fd2764d3060e93f331897d2cb0c92a28" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Winchester</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_45078775e7cae7d9299a82925b8cae68.setContent(html_fd2764d3060e93f331897d2cb0c92a28);
+            
+        
+
+        marker_15654e535f67877d784e0cb40f9e799e.bindPopup(popup_45078775e7cae7d9299a82925b8cae68)
+        ;
+
+        
+    
+    
+            marker_15654e535f67877d784e0cb40f9e799e.bindTooltip(
+                `<div>
+                     Winchester
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_72cbac34b20d80720d7adc357fb6d269 = L.marker(
+                [52.9540223, -1.1549892],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_8aa0fae5696bdf968ebbe4fde07c05aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_72cbac34b20d80720d7adc357fb6d269.setIcon(icon_8aa0fae5696bdf968ebbe4fde07c05aa);
+        
+    
+        var popup_58a1348c7e7e07814b3075a97f869ada = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cd14ce8459ac7b42b8c4625d1faf8dae = $(`<div id="html_cd14ce8459ac7b42b8c4625d1faf8dae" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Nottingham</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_58a1348c7e7e07814b3075a97f869ada.setContent(html_cd14ce8459ac7b42b8c4625d1faf8dae);
+            
+        
+
+        marker_72cbac34b20d80720d7adc357fb6d269.bindPopup(popup_58a1348c7e7e07814b3075a97f869ada)
+        ;
+
+        
+    
+    
+            marker_72cbac34b20d80720d7adc357fb6d269.bindTooltip(
+                `<div>
+                     Nottingham
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_782f4223151f2a4cbfd85ae5795de07f = L.marker(
+                [53.40685971, -2.997842976],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_eef06982b7dccd4d4dffad6abe286933 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_782f4223151f2a4cbfd85ae5795de07f.setIcon(icon_eef06982b7dccd4d4dffad6abe286933);
+        
+    
+        var popup_7ebc532658b558923ec3ac9d2c0c7752 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d3ad633d9156237247701f3bb7f6eb36 = $(`<div id="html_d3ad633d9156237247701f3bb7f6eb36" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Liverpool</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_7ebc532658b558923ec3ac9d2c0c7752.setContent(html_d3ad633d9156237247701f3bb7f6eb36);
+            
+        
+
+        marker_782f4223151f2a4cbfd85ae5795de07f.bindPopup(popup_7ebc532658b558923ec3ac9d2c0c7752)
+        ;
+
+        
+    
+    
+            marker_782f4223151f2a4cbfd85ae5795de07f.bindTooltip(
+                `<div>
+                     Liverpool
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_90bf2fe6465aa6ba405259706d81649b = L.marker(
+                [53.4807593, -2.2426305],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_4c18baf4e3225cecff56841cbf76c5d3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_90bf2fe6465aa6ba405259706d81649b.setIcon(icon_4c18baf4e3225cecff56841cbf76c5d3);
+        
+    
+        var popup_4b0542d0fba747d05ce7990758b2fe11 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d547ce3297be4d843e999d83cdfe0e0b = $(`<div id="html_d547ce3297be4d843e999d83cdfe0e0b" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Manchester</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_4b0542d0fba747d05ce7990758b2fe11.setContent(html_d547ce3297be4d843e999d83cdfe0e0b);
+            
+        
+
+        marker_90bf2fe6465aa6ba405259706d81649b.bindPopup(popup_4b0542d0fba747d05ce7990758b2fe11)
+        ;
+
+        
+    
+    
+            marker_90bf2fe6465aa6ba405259706d81649b.bindTooltip(
+                `<div>
+                     Manchester
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_39f739380d82c0f0a6999c0dde90252b = L.marker(
+                [51.5719443, -0.7769422],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_0873950c9784b88bdabc453232bbd0d9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_39f739380d82c0f0a6999c0dde90252b.setIcon(icon_0873950c9784b88bdabc453232bbd0d9);
+        
+    
+        var popup_845142838d73c782b5e2d05f289eeac6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8e5d922c8a0bdec96bb7b0fea20d580e = $(`<div id="html_8e5d922c8a0bdec96bb7b0fea20d580e" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Marlow</a><br><br>Community<br><br>Contact:<br>Frank Schoofs<br>fschoofs@gmail.com</div>`)[0];
+                popup_845142838d73c782b5e2d05f289eeac6.setContent(html_8e5d922c8a0bdec96bb7b0fea20d580e);
+            
+        
+
+        marker_39f739380d82c0f0a6999c0dde90252b.bindPopup(popup_845142838d73c782b5e2d05f289eeac6)
+        ;
+
+        
+    
+    
+            marker_39f739380d82c0f0a6999c0dde90252b.bindTooltip(
+                `<div>
+                     Marlow
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c9b706ecb1ff78f1d2f5736811a58394 = L.marker(
+                [51.280233, 1.0789089],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_3850b3ed97e18a499bb2e5f7ca4d8c2f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c9b706ecb1ff78f1d2f5736811a58394.setIcon(icon_3850b3ed97e18a499bb2e5f7ca4d8c2f);
+        
+    
+        var popup_e6e1f3f19f8122794a48f21d7a7d8de3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_664f9b714899abfa77fcb74390d95b52 = $(`<div id="html_664f9b714899abfa77fcb74390d95b52" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Canterbury</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_e6e1f3f19f8122794a48f21d7a7d8de3.setContent(html_664f9b714899abfa77fcb74390d95b52);
+            
+        
+
+        marker_c9b706ecb1ff78f1d2f5736811a58394.bindPopup(popup_e6e1f3f19f8122794a48f21d7a7d8de3)
+        ;
+
+        
+    
+    
+            marker_c9b706ecb1ff78f1d2f5736811a58394.bindTooltip(
+                `<div>
+                     Canterbury
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_46c833983c96a3bcaaad25b3f34b75df = L.marker(
+                [51.4612794, -0.1156148],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_673397e02ba262dfe21a3406d8ca42b0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud-bolt", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_46c833983c96a3bcaaad25b3f34b75df.setIcon(icon_673397e02ba262dfe21a3406d8ca42b0);
+        
+    
+        var popup_003128090d1ce13de7987e8bc3efdec8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dda09365acbab3577435de80cbf3f951 = $(`<div id="html_dda09365acbab3577435de80cbf3f951" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Transition Town Brixton</a><br><br>Climate<br><br>Contact:<br>Nick Annim<br>nan</div>`)[0];
+                popup_003128090d1ce13de7987e8bc3efdec8.setContent(html_dda09365acbab3577435de80cbf3f951);
+            
+        
+
+        marker_46c833983c96a3bcaaad25b3f34b75df.bindPopup(popup_003128090d1ce13de7987e8bc3efdec8)
+        ;
+
+        
+    
+    
+            marker_46c833983c96a3bcaaad25b3f34b75df.bindTooltip(
+                `<div>
+                     Transition Town Brixton
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_da78a690f9319e8e93532d2f3531387f = L.marker(
+                [53.7676236, -0.3274198],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_e041bda096777cffb51927005d35d5ed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_da78a690f9319e8e93532d2f3531387f.setIcon(icon_e041bda096777cffb51927005d35d5ed);
+        
+    
+        var popup_8248c16b04fedb20c799f52b43418144 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_83058df0d386c10fcc5504393ef46e33 = $(`<div id="html_83058df0d386c10fcc5504393ef46e33" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Hull</a><br><br>Community<br><br>Contact:<br>Roman Paluch<br>rpaluchm@gmail.com</div>`)[0];
+                popup_8248c16b04fedb20c799f52b43418144.setContent(html_83058df0d386c10fcc5504393ef46e33);
+            
+        
+
+        marker_da78a690f9319e8e93532d2f3531387f.bindPopup(popup_8248c16b04fedb20c799f52b43418144)
+        ;
+
+        
+    
+    
+            marker_da78a690f9319e8e93532d2f3531387f.bindTooltip(
+                `<div>
+                     Hull
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b3f622587a67790c12ab40c07dddc0b = L.marker(
+                [51.943544, -1.542189],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_507e3020ae6a2fdd7ff4893c0a0590b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_9b3f622587a67790c12ab40c07dddc0b.setIcon(icon_507e3020ae6a2fdd7ff4893c0a0590b5);
+        
+    
+        var popup_456638ae439dd7e852c306f3c63ba6c3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2029383100bc3975aedd489e90959bf5 = $(`<div id="html_2029383100bc3975aedd489e90959bf5" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Chipping Norton</a><br><br>Community<br><br>Contact:<br>gabby<br>nan</div>`)[0];
+                popup_456638ae439dd7e852c306f3c63ba6c3.setContent(html_2029383100bc3975aedd489e90959bf5);
+            
+        
+
+        marker_9b3f622587a67790c12ab40c07dddc0b.bindPopup(popup_456638ae439dd7e852c306f3c63ba6c3)
+        ;
+
+        
+    
+    
+            marker_9b3f622587a67790c12ab40c07dddc0b.bindTooltip(
+                `<div>
+                     Chipping Norton
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6f2b506b70b2b9c4673f79042d413a67 = L.marker(
+                [51.483707, -3.1680962],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_161ed9ab1bceba02d7389d26ca5bd843 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6f2b506b70b2b9c4673f79042d413a67.setIcon(icon_161ed9ab1bceba02d7389d26ca5bd843);
+        
+    
+        var popup_425e885136d8604ba40efd8f03354d33 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_71a9c2a72bcee51774a9b0047c3670db = $(`<div id="html_71a9c2a72bcee51774a9b0047c3670db" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Cardiff</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_425e885136d8604ba40efd8f03354d33.setContent(html_71a9c2a72bcee51774a9b0047c3670db);
+            
+        
+
+        marker_6f2b506b70b2b9c4673f79042d413a67.bindPopup(popup_425e885136d8604ba40efd8f03354d33)
+        ;
+
+        
+    
+    
+            marker_6f2b506b70b2b9c4673f79042d413a67.bindTooltip(
+                `<div>
+                     Cardiff
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e60646edc7802b3f0cef9218be1835d7 = L.marker(
+                [51.745734, -2.217758],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_6ace80d2ee5ab5f8c3854ba75566f377 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e60646edc7802b3f0cef9218be1835d7.setIcon(icon_6ace80d2ee5ab5f8c3854ba75566f377);
+        
+    
+        var popup_016b4ea79715e19fb1c5512c210693aa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f3e2f44fdaa7b0d0ca945149fd0ff174 = $(`<div id="html_f3e2f44fdaa7b0d0ca945149fd0ff174" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Stroud</a><br><br>Community<br><br>Contact:<br>parent for a future<br>nan</div>`)[0];
+                popup_016b4ea79715e19fb1c5512c210693aa.setContent(html_f3e2f44fdaa7b0d0ca945149fd0ff174);
+            
+        
+
+        marker_e60646edc7802b3f0cef9218be1835d7.bindPopup(popup_016b4ea79715e19fb1c5512c210693aa)
+        ;
+
+        
+    
+    
+            marker_e60646edc7802b3f0cef9218be1835d7.bindTooltip(
+                `<div>
+                     Stroud
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f21363501ca9a0c2429340c5e00f8ced = L.marker(
+                [51.5906113, -0.1109709],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_7ce0906efd179e472884bbc20edbfdac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f21363501ca9a0c2429340c5e00f8ced.setIcon(icon_7ce0906efd179e472884bbc20edbfdac);
+        
+    
+        var popup_46cf946a05c9efcee1160cac737589ad = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fc2916b02f506a708336b9e3c79e853d = $(`<div id="html_fc2916b02f506a708336b9e3c79e853d" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Haringey</a><br><br>Community<br><br>Contact:<br>Moussa<br>Moussa.Sylla@corganisers.org.uk</div>`)[0];
+                popup_46cf946a05c9efcee1160cac737589ad.setContent(html_fc2916b02f506a708336b9e3c79e853d);
+            
+        
+
+        marker_f21363501ca9a0c2429340c5e00f8ced.bindPopup(popup_46cf946a05c9efcee1160cac737589ad)
+        ;
+
+        
+    
+    
+            marker_f21363501ca9a0c2429340c5e00f8ced.bindTooltip(
+                `<div>
+                     Haringey
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_081f96db3988e75c1d4b956ddb7335ef = L.marker(
+                [54.691745, -1.212926],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_cf8817a79ece6f8bd387696b0afa60e0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_081f96db3988e75c1d4b956ddb7335ef.setIcon(icon_cf8817a79ece6f8bd387696b0afa60e0);
+        
+    
+        var popup_d817feb0bc46be5858e0f7f77f352e5c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_866873c02e50fbbbd2be44c69ce0f76f = $(`<div id="html_866873c02e50fbbbd2be44c69ce0f76f" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Hartlepool</a><br><br>Community<br><br>Contact:<br>Sacha Bedding<br>sacha.bedding@theannexehartlepool.org.uk</div>`)[0];
+                popup_d817feb0bc46be5858e0f7f77f352e5c.setContent(html_866873c02e50fbbbd2be44c69ce0f76f);
+            
+        
+
+        marker_081f96db3988e75c1d4b956ddb7335ef.bindPopup(popup_d817feb0bc46be5858e0f7f77f352e5c)
+        ;
+
+        
+    
+    
+            marker_081f96db3988e75c1d4b956ddb7335ef.bindTooltip(
+                `<div>
+                     Hartlepool
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_76362fd464f699954374d73fbb852696 = L.marker(
+                [54.762441, -1.32895],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_88b6cc53fdf2a63f12f197e0ae011e68 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_76362fd464f699954374d73fbb852696.setIcon(icon_88b6cc53fdf2a63f12f197e0ae011e68);
+        
+    
+        var popup_0e2f78bec3b27100e6e77ade1bfa68dd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d9639ec955b1f4917c5355f1de23f051 = $(`<div id="html_d9639ec955b1f4917c5355f1de23f051" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Peterlee</a><br><br>Community<br><br>Contact:<br>Graham Easterlow<br>Graham.Easterlow@eastdurhamtrust.org.uk</div>`)[0];
+                popup_0e2f78bec3b27100e6e77ade1bfa68dd.setContent(html_d9639ec955b1f4917c5355f1de23f051);
+            
+        
+
+        marker_76362fd464f699954374d73fbb852696.bindPopup(popup_0e2f78bec3b27100e6e77ade1bfa68dd)
+        ;
+
+        
+    
+    
+            marker_76362fd464f699954374d73fbb852696.bindTooltip(
+                `<div>
+                     Peterlee
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5164f0a7d037d255277bc68785290d44 = L.marker(
+                [53.342078, -2.729673],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_f7752b7dc5095723a19f66f5d25286b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5164f0a7d037d255277bc68785290d44.setIcon(icon_f7752b7dc5095723a19f66f5d25286b5);
+        
+    
+        var popup_99e32550e219ea39521abc0dd04803ff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1e79a7bf5fccef3f0308f3774327d716 = $(`<div id="html_1e79a7bf5fccef3f0308f3774327d716" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Runcorn</a><br><br>Community<br><br>Contact:<br>Sue/Nicola<br>nan</div>`)[0];
+                popup_99e32550e219ea39521abc0dd04803ff.setContent(html_1e79a7bf5fccef3f0308f3774327d716);
+            
+        
+
+        marker_5164f0a7d037d255277bc68785290d44.bindPopup(popup_99e32550e219ea39521abc0dd04803ff)
+        ;
+
+        
+    
+    
+            marker_5164f0a7d037d255277bc68785290d44.bindTooltip(
+                `<div>
+                     Runcorn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7edc6bee2a6acc9fa03f85d2fa488032 = L.marker(
+                [53.4106316, -2.1575332],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_327d2958bdb9ec716f4ac22809409560 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_7edc6bee2a6acc9fa03f85d2fa488032.setIcon(icon_327d2958bdb9ec716f4ac22809409560);
+        
+    
+        var popup_9e0fdf200618d51c9fa0faace431db1a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3933605bde734bef32e7f21dc53feb7d = $(`<div id="html_3933605bde734bef32e7f21dc53feb7d" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Stockport</a><br><br>Community<br><br>Contact:<br>Nicola Dean<br>nicola@startpoint.org.uk</div>`)[0];
+                popup_9e0fdf200618d51c9fa0faace431db1a.setContent(html_3933605bde734bef32e7f21dc53feb7d);
+            
+        
+
+        marker_7edc6bee2a6acc9fa03f85d2fa488032.bindPopup(popup_9e0fdf200618d51c9fa0faace431db1a)
+        ;
+
+        
+    
+    
+            marker_7edc6bee2a6acc9fa03f85d2fa488032.bindTooltip(
+                `<div>
+                     Stockport
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c87741743aaae114028210579c08935e = L.marker(
+                [53.0033369, -2.1827408],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_e225de68db6f150111db35864f5cc671 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c87741743aaae114028210579c08935e.setIcon(icon_e225de68db6f150111db35864f5cc671);
+        
+    
+        var popup_280c8a3e60a012cc9425756c93b023a7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_836deb319f9633e58c3b4ac919e8a921 = $(`<div id="html_836deb319f9633e58c3b4ac919e8a921" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Stoke-on-Trent</a><br><br>Community<br><br>Contact:<br>Penny Vincent<br>allthesmallthingscic@gmail.com</div>`)[0];
+                popup_280c8a3e60a012cc9425756c93b023a7.setContent(html_836deb319f9633e58c3b4ac919e8a921);
+            
+        
+
+        marker_c87741743aaae114028210579c08935e.bindPopup(popup_280c8a3e60a012cc9425756c93b023a7)
+        ;
+
+        
+    
+    
+            marker_c87741743aaae114028210579c08935e.bindTooltip(
+                `<div>
+                     Stoke-on-Trent
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ed55c89c706d0436fb874b748af67e82 = L.marker(
+                [53.3678916, -2.0047714],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_9cfeaf025d4666739be52f2a3e3073bc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ed55c89c706d0436fb874b748af67e82.setIcon(icon_9cfeaf025d4666739be52f2a3e3073bc);
+        
+    
+        var popup_db7c2e2b4cfa9a09da2ee06df1183bb7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7b340014a62870441e2f7c4e2bc38858 = $(`<div id="html_7b340014a62870441e2f7c4e2bc38858" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">New Mills</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_db7c2e2b4cfa9a09da2ee06df1183bb7.setContent(html_7b340014a62870441e2f7c4e2bc38858);
+            
+        
+
+        marker_ed55c89c706d0436fb874b748af67e82.bindPopup(popup_db7c2e2b4cfa9a09da2ee06df1183bb7)
+        ;
+
+        
+    
+    
+            marker_ed55c89c706d0436fb874b748af67e82.bindTooltip(
+                `<div>
+                     New Mills
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b47d71220884a6b05eed6f3c7ba03c4 = L.marker(
+                [53.04304, -2.992494],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_d5fda5226888e3b48d5e2fdf033e7965 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1b47d71220884a6b05eed6f3c7ba03c4.setIcon(icon_d5fda5226888e3b48d5e2fdf033e7965);
+        
+    
+        var popup_832108487f5abe28a5d9031483b2dab4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_070757a4a98d4a42ba875ac330929f4d = $(`<div id="html_070757a4a98d4a42ba875ac330929f4d" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Wrexham</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_832108487f5abe28a5d9031483b2dab4.setContent(html_070757a4a98d4a42ba875ac330929f4d);
+            
+        
+
+        marker_1b47d71220884a6b05eed6f3c7ba03c4.bindPopup(popup_832108487f5abe28a5d9031483b2dab4)
+        ;
+
+        
+    
+    
+            marker_1b47d71220884a6b05eed6f3c7ba03c4.bindTooltip(
+                `<div>
+                     Wrexham
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_414b1989ff62c0fe7aa9f4721a648087 = L.marker(
+                [53.689833, -1.6296949],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_e04f87819c8368f7171fadf00624b5e5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_414b1989ff62c0fe7aa9f4721a648087.setIcon(icon_e04f87819c8368f7171fadf00624b5e5);
+        
+    
+        var popup_04ba6c3c810f30b3bcfbbaa08ddaf2b4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a986a6345ad80531b1b4bb9c09067a1a = $(`<div id="html_a986a6345ad80531b1b4bb9c09067a1a" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">dewsbury huddersfield</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_04ba6c3c810f30b3bcfbbaa08ddaf2b4.setContent(html_a986a6345ad80531b1b4bb9c09067a1a);
+            
+        
+
+        marker_414b1989ff62c0fe7aa9f4721a648087.bindPopup(popup_04ba6c3c810f30b3bcfbbaa08ddaf2b4)
+        ;
+
+        
+    
+    
+            marker_414b1989ff62c0fe7aa9f4721a648087.bindTooltip(
+                `<div>
+                     dewsbury huddersfield
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1ccc4aebcea48ba2f75f00966f33f44b = L.marker(
+                [53.6097136, -2.1561],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_c479572990dcb8aeed6dfd89d9e558a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1ccc4aebcea48ba2f75f00966f33f44b.setIcon(icon_c479572990dcb8aeed6dfd89d9e558a4);
+        
+    
+        var popup_e47f9ef5ccd088c784a5cb9c99867fd6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1b048fa065aa2142853beb4cf73b9a1c = $(`<div id="html_1b048fa065aa2142853beb4cf73b9a1c" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Rochdale</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_e47f9ef5ccd088c784a5cb9c99867fd6.setContent(html_1b048fa065aa2142853beb4cf73b9a1c);
+            
+        
+
+        marker_1ccc4aebcea48ba2f75f00966f33f44b.bindPopup(popup_e47f9ef5ccd088c784a5cb9c99867fd6)
+        ;
+
+        
+    
+    
+            marker_1ccc4aebcea48ba2f75f00966f33f44b.bindTooltip(
+                `<div>
+                     Rochdale
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_df9f0f1dc881d6a02d5724dca34c0201 = L.marker(
+                [51.015344, -3.106849],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_92c8f65452fef655884b7a60eb6b58bc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_df9f0f1dc881d6a02d5724dca34c0201.setIcon(icon_92c8f65452fef655884b7a60eb6b58bc);
+        
+    
+        var popup_c3ab066cf0e33e63a42d25b16930777c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8f0aab1057910066ec6f02f87894acd1 = $(`<div id="html_8f0aab1057910066ec6f02f87894acd1" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Taunton</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_c3ab066cf0e33e63a42d25b16930777c.setContent(html_8f0aab1057910066ec6f02f87894acd1);
+            
+        
+
+        marker_df9f0f1dc881d6a02d5724dca34c0201.bindPopup(popup_c3ab066cf0e33e63a42d25b16930777c)
+        ;
+
+        
+    
+    
+            marker_df9f0f1dc881d6a02d5724dca34c0201.bindTooltip(
+                `<div>
+                     Taunton
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6fdafde67056b0863bb6e99091be12a7 = L.marker(
+                [53.8007554, -1.5490774],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_57c350e096f38f873354ab025ea8d7fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6fdafde67056b0863bb6e99091be12a7.setIcon(icon_57c350e096f38f873354ab025ea8d7fe);
+        
+    
+        var popup_42a05041892a811fe0e88c7b3138d6fc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f227a5b53e031d5c0160eb01a422a0a4 = $(`<div id="html_f227a5b53e031d5c0160eb01a422a0a4" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Leeds</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_42a05041892a811fe0e88c7b3138d6fc.setContent(html_f227a5b53e031d5c0160eb01a422a0a4);
+            
+        
+
+        marker_6fdafde67056b0863bb6e99091be12a7.bindPopup(popup_42a05041892a811fe0e88c7b3138d6fc)
+        ;
+
+        
+    
+    
+            marker_6fdafde67056b0863bb6e99091be12a7.bindTooltip(
+                `<div>
+                     Leeds
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5caa2a409683fc1e627f389762114555 = L.marker(
+                [51.5436387, -0.0553621],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_ce46eb034ab0e812f2804e835f2de148 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "rainbow", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_5caa2a409683fc1e627f389762114555.setIcon(icon_ce46eb034ab0e812f2804e835f2de148);
+        
+    
+        var popup_2e4d9368ecf486aa81e2f58d3158491e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d657a51ada6bcf24bceba872d157afb0 = $(`<div id="html_d657a51ada6bcf24bceba872d157afb0" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Hackney Black Youth Assembly</a><br><br>BIPOC Rights<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_2e4d9368ecf486aa81e2f58d3158491e.setContent(html_d657a51ada6bcf24bceba872d157afb0);
+            
+        
+
+        marker_5caa2a409683fc1e627f389762114555.bindPopup(popup_2e4d9368ecf486aa81e2f58d3158491e)
+        ;
+
+        
+    
+    
+            marker_5caa2a409683fc1e627f389762114555.bindTooltip(
+                `<div>
+                     Hackney Black Youth Assembly
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_67ec52c154fc99759a3efe625661913e = L.marker(
+                [51.454513, -2.58791],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_1ad0a2c1a25952d14b498fcf34117c4d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "rainbow", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_67ec52c154fc99759a3efe625661913e.setIcon(icon_1ad0a2c1a25952d14b498fcf34117c4d);
+        
+    
+        var popup_c97578a8d2ad5dca43b9b811750f5cfc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ad6864a476ec9b28058ac8223f729314 = $(`<div id="html_ad6864a476ec9b28058ac8223f729314" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Bristol</a><br><br>BIPOC Rights<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_c97578a8d2ad5dca43b9b811750f5cfc.setContent(html_ad6864a476ec9b28058ac8223f729314);
+            
+        
+
+        marker_67ec52c154fc99759a3efe625661913e.bindPopup(popup_c97578a8d2ad5dca43b9b811750f5cfc)
+        ;
+
+        
+    
+    
+            marker_67ec52c154fc99759a3efe625661913e.bindTooltip(
+                `<div>
+                     Bristol
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_29b3c029e4284905a1b999c4f985bb8f = L.marker(
+                [55.8616704, -4.2583345],
+                {}
+            ).addTo(feature_group_412cbf8c265685175724af168bbf71f6);
+        
+    
+            var icon_13fe11fbbb427904739cbac9a9f50c0d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_29b3c029e4284905a1b999c4f985bb8f.setIcon(icon_13fe11fbbb427904739cbac9a9f50c0d);
+        
+    
+        var popup_b3ba081abae205ce63bcfe4a9466ce10 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b67e0956f4aa937f0a7958333c28dfee = $(`<div id="html_b67e0956f4aa937f0a7958333c28dfee" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Glasgow</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_b3ba081abae205ce63bcfe4a9466ce10.setContent(html_b67e0956f4aa937f0a7958333c28dfee);
+            
+        
+
+        marker_29b3c029e4284905a1b999c4f985bb8f.bindPopup(popup_b3ba081abae205ce63bcfe4a9466ce10)
+        ;
+
+        
+    
+    
+            marker_29b3c029e4284905a1b999c4f985bb8f.bindTooltip(
+                `<div>
+                     Glasgow
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            feature_group_412cbf8c265685175724af168bbf71f6.addTo(map_2572ec95c8182556fb718ab8f3b68ca7);
+        
+    
+            var feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd = L.featureGroup(
+                {}
+            );
+        
+    
+            var marker_9a9faaab33cb9c3930eab7508e4d44f1 = L.marker(
+                [52.9540223, -1.1549892],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_01c1e3eb5cea4c83ab5bca7fc03a8538 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud-bolt", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9a9faaab33cb9c3930eab7508e4d44f1.setIcon(icon_01c1e3eb5cea4c83ab5bca7fc03a8538);
+        
+    
+        var popup_8aabf1e8a273ff08b19ff49c1746b90f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_693c529c84a40b398b280f87309747f2 = $(`<div id="html_693c529c84a40b398b280f87309747f2" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Nottingham Climate Assembly @ Green festival</a><br><br>Climate<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_8aabf1e8a273ff08b19ff49c1746b90f.setContent(html_693c529c84a40b398b280f87309747f2);
+            
+        
+
+        marker_9a9faaab33cb9c3930eab7508e4d44f1.bindPopup(popup_8aabf1e8a273ff08b19ff49c1746b90f)
+        ;
+
+        
+    
+    
+            marker_9a9faaab33cb9c3930eab7508e4d44f1.bindTooltip(
+                `<div>
+                     Nottingham Climate Assembly @ Green festival
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b0390332dff559114b5c9301e20e117e = L.marker(
+                [54.663822, -1.678788],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_2a4cca8a298faceccfdf2ace830c56a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b0390332dff559114b5c9301e20e117e.setIcon(icon_2a4cca8a298faceccfdf2ace830c56a6);
+        
+    
+        var popup_99055c87f002b5dd0fec3768577fbd73 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f8d96c0d7f43e73c32e2b488d07f926f = $(`<div id="html_f8d96c0d7f43e73c32e2b488d07f926f" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Gaunless Gateway  (Bishop Auckland, N. East)</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_99055c87f002b5dd0fec3768577fbd73.setContent(html_f8d96c0d7f43e73c32e2b488d07f926f);
+            
+        
+
+        marker_b0390332dff559114b5c9301e20e117e.bindPopup(popup_99055c87f002b5dd0fec3768577fbd73)
+        ;
+
+        
+    
+    
+            marker_b0390332dff559114b5c9301e20e117e.bindTooltip(
+                `<div>
+                     Gaunless Gateway 
+(Bishop Auckland, N. East)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3129a674cdf65e5800aa41cccf112791 = L.marker(
+                [51.4610013, -2.5531961],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_f6063952009a11010eefc73a8931c0ed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3129a674cdf65e5800aa41cccf112791.setIcon(icon_f6063952009a11010eefc73a8931c0ed);
+        
+    
+        var popup_cbef310785c7fdf24d6f25ebaf29fd1f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0a735b355ef3d5f0dbffbf22bbe17a3b = $(`<div id="html_0a735b355ef3d5f0dbffbf22bbe17a3b" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">BS5, Bristol</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_cbef310785c7fdf24d6f25ebaf29fd1f.setContent(html_0a735b355ef3d5f0dbffbf22bbe17a3b);
+            
+        
+
+        marker_3129a674cdf65e5800aa41cccf112791.bindPopup(popup_cbef310785c7fdf24d6f25ebaf29fd1f)
+        ;
+
+        
+    
+    
+            marker_3129a674cdf65e5800aa41cccf112791.bindTooltip(
+                `<div>
+                     BS5, Bristol
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_75955b020f59c5659977d4ec74257f21 = L.marker(
+                [51.3981336, -0.0716],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_2cdbf7e734592098e9180068db29d054 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_75955b020f59c5659977d4ec74257f21.setIcon(icon_2cdbf7e734592098e9180068db29d054);
+        
+    
+        var popup_3bb2fb3e5c45d2d2af41c3b27cef634a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b73d0e272a730d4064b2a77e43746e74 = $(`<div id="html_b73d0e272a730d4064b2a77e43746e74" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">South Norwood</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_3bb2fb3e5c45d2d2af41c3b27cef634a.setContent(html_b73d0e272a730d4064b2a77e43746e74);
+            
+        
+
+        marker_75955b020f59c5659977d4ec74257f21.bindPopup(popup_3bb2fb3e5c45d2d2af41c3b27cef634a)
+        ;
+
+        
+    
+    
+            marker_75955b020f59c5659977d4ec74257f21.bindTooltip(
+                `<div>
+                     South Norwood
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a9e570c92f34627cfacdd6cddcfe7ba6 = L.marker(
+                [50.2660471, -5.0527125],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_17e9a8b3303c59cadafdc289d6576ae3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a9e570c92f34627cfacdd6cddcfe7ba6.setIcon(icon_17e9a8b3303c59cadafdc289d6576ae3);
+        
+    
+        var popup_531e94aa236f78b7ae44885a2f732434 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c411239dd6f8e8e5f23c93432b39e3bd = $(`<div id="html_c411239dd6f8e8e5f23c93432b39e3bd" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Cornwall Community Conversation</a><br><br>Community<br><br>Contact:<br>Myghal Ryual<br>myghal@protonmail.com</div>`)[0];
+                popup_531e94aa236f78b7ae44885a2f732434.setContent(html_c411239dd6f8e8e5f23c93432b39e3bd);
+            
+        
+
+        marker_a9e570c92f34627cfacdd6cddcfe7ba6.bindPopup(popup_531e94aa236f78b7ae44885a2f732434)
+        ;
+
+        
+    
+    
+            marker_a9e570c92f34627cfacdd6cddcfe7ba6.bindTooltip(
+                `<div>
+                     Cornwall Community Conversation
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fde8f571f95534e7b8abe3a7643861dd = L.marker(
+                [50.31277432, -5.20395715],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_6151e2f5bc6b088663935bc42be0a097 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "skull-crossbones", "iconColor": "white", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_fde8f571f95534e7b8abe3a7643861dd.setIcon(icon_6151e2f5bc6b088663935bc42be0a097);
+        
+    
+        var popup_94b0ff0d5a6c2fb96b01ba1cc7054c8f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ac7354e2049cdbd76ee67971d19a240f = $(`<div id="html_ac7354e2049cdbd76ee67971d19a240f" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">St Agnes</a><br><br>Pollution<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_94b0ff0d5a6c2fb96b01ba1cc7054c8f.setContent(html_ac7354e2049cdbd76ee67971d19a240f);
+            
+        
+
+        marker_fde8f571f95534e7b8abe3a7643861dd.bindPopup(popup_94b0ff0d5a6c2fb96b01ba1cc7054c8f)
+        ;
+
+        
+    
+    
+            marker_fde8f571f95534e7b8abe3a7643861dd.bindTooltip(
+                `<div>
+                     St Agnes
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b055eb3d02eb66bf043c67027176bb9f = L.marker(
+                [50.40921, -4.21643],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_2096b9974776228a0beb5c3397fccd39 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b055eb3d02eb66bf043c67027176bb9f.setIcon(icon_2096b9974776228a0beb5c3397fccd39);
+        
+    
+        var popup_16b9f0f6ff67e0e9061f852ffd3b61eb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4e28a68da214626c77ad1324518e27a5 = $(`<div id="html_4e28a68da214626c77ad1324518e27a5" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Saltash</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_16b9f0f6ff67e0e9061f852ffd3b61eb.setContent(html_4e28a68da214626c77ad1324518e27a5);
+            
+        
+
+        marker_b055eb3d02eb66bf043c67027176bb9f.bindPopup(popup_16b9f0f6ff67e0e9061f852ffd3b61eb)
+        ;
+
+        
+    
+    
+            marker_b055eb3d02eb66bf043c67027176bb9f.bindTooltip(
+                `<div>
+                     Saltash
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fa6b740dfbf23fb8249d27c0f4cf0d91 = L.marker(
+                [52.9225301, -1.4746186],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_f633f55d4e5261d725729efcdbe54399 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fa6b740dfbf23fb8249d27c0f4cf0d91.setIcon(icon_f633f55d4e5261d725729efcdbe54399);
+        
+    
+        var popup_14be9385056762b69f162572d03f5d2e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8e698c137bb146773a8e8719a99f9831 = $(`<div id="html_8e698c137bb146773a8e8719a99f9831" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Derby</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_14be9385056762b69f162572d03f5d2e.setContent(html_8e698c137bb146773a8e8719a99f9831);
+            
+        
+
+        marker_fa6b740dfbf23fb8249d27c0f4cf0d91.bindPopup(popup_14be9385056762b69f162572d03f5d2e)
+        ;
+
+        
+    
+    
+            marker_fa6b740dfbf23fb8249d27c0f4cf0d91.bindTooltip(
+                `<div>
+                     Derby
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dd87a186a7d5f5fc51bc8bd3bea9dd11 = L.marker(
+                [52.9225301, -1.4746186],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_722f93da119d34f2712bdca3d2a0a6af = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_dd87a186a7d5f5fc51bc8bd3bea9dd11.setIcon(icon_722f93da119d34f2712bdca3d2a0a6af);
+        
+    
+        var popup_8f26eaad72885881a80a44006fdfe72e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7b937110460ad6887a1e556a4a15e9f4 = $(`<div id="html_7b937110460ad6887a1e556a4a15e9f4" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Derby</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_8f26eaad72885881a80a44006fdfe72e.setContent(html_7b937110460ad6887a1e556a4a15e9f4);
+            
+        
+
+        marker_dd87a186a7d5f5fc51bc8bd3bea9dd11.bindPopup(popup_8f26eaad72885881a80a44006fdfe72e)
+        ;
+
+        
+    
+    
+            marker_dd87a186a7d5f5fc51bc8bd3bea9dd11.bindTooltip(
+                `<div>
+                     Derby
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0e8f4fd32a97f2b2922cfdcf45829f11 = L.marker(
+                [51.7520209, -1.2577263],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_3191c21f70afcdad50ac0491f9d11a3b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0e8f4fd32a97f2b2922cfdcf45829f11.setIcon(icon_3191c21f70afcdad50ac0491f9d11a3b);
+        
+    
+        var popup_91ac94a016923250ab2db43b380bcbdd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b17cc0b7ead07396bac51501ba8cb98f = $(`<div id="html_b17cc0b7ead07396bac51501ba8cb98f" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Oxford</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_91ac94a016923250ab2db43b380bcbdd.setContent(html_b17cc0b7ead07396bac51501ba8cb98f);
+            
+        
+
+        marker_0e8f4fd32a97f2b2922cfdcf45829f11.bindPopup(popup_91ac94a016923250ab2db43b380bcbdd)
+        ;
+
+        
+    
+    
+            marker_0e8f4fd32a97f2b2922cfdcf45829f11.bindTooltip(
+                `<div>
+                     Oxford
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6b5bc88585233c1fdfe27ff2b5f4253b = L.marker(
+                [50.7260367, -3.5274889],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_bb1d2b81c80931fd4f483c0e0866efb1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6b5bc88585233c1fdfe27ff2b5f4253b.setIcon(icon_bb1d2b81c80931fd4f483c0e0866efb1);
+        
+    
+        var popup_2e8a0f79848081f5ea420a50a06d28fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7451e8b0c83e49f5893395c536f679ec = $(`<div id="html_7451e8b0c83e49f5893395c536f679ec" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Exeter F4F</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_2e8a0f79848081f5ea420a50a06d28fa.setContent(html_7451e8b0c83e49f5893395c536f679ec);
+            
+        
+
+        marker_6b5bc88585233c1fdfe27ff2b5f4253b.bindPopup(popup_2e8a0f79848081f5ea420a50a06d28fa)
+        ;
+
+        
+    
+    
+            marker_6b5bc88585233c1fdfe27ff2b5f4253b.bindTooltip(
+                `<div>
+                     Exeter F4F
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_da22c61710a60b1474906d1b48e165f6 = L.marker(
+                [51.50616057, -0.11629594],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_bb4ffc0c1b0064bdb8c2c2b866b70732 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud-bolt", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_da22c61710a60b1474906d1b48e165f6.setIcon(icon_bb4ffc0c1b0064bdb8c2c2b866b70732);
+        
+    
+        var popup_4cdcc43cd548001641d1c4212529d05d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3bd1921d35521348f04551938dfc89ac = $(`<div id="html_3bd1921d35521348f04551938dfc89ac" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Southbank Centre / Culture Declares</a><br><br>Climate<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_4cdcc43cd548001641d1c4212529d05d.setContent(html_3bd1921d35521348f04551938dfc89ac);
+            
+        
+
+        marker_da22c61710a60b1474906d1b48e165f6.bindPopup(popup_4cdcc43cd548001641d1c4212529d05d)
+        ;
+
+        
+    
+    
+            marker_da22c61710a60b1474906d1b48e165f6.bindTooltip(
+                `<div>
+                     Southbank Centre / Culture Declares
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d72c459a6dc78cb02c75fb76ccff2be8 = L.marker(
+                [54.972665, -2.1121439],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_26efb64cf480928727ed788803b974a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d72c459a6dc78cb02c75fb76ccff2be8.setIcon(icon_26efb64cf480928727ed788803b974a4);
+        
+    
+        var popup_6ae1729077197429247dbcd57f86c7b7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e5baf90fa05a820e5be47afc20045ff4 = $(`<div id="html_e5baf90fa05a820e5be47afc20045ff4" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Hexham</a><br><br>Community<br><br>Contact:<br>Ariane Baty Carolin Blaske<br>arianebaty@hotmail.co.uk carolin.blaske@gmail.com</div>`)[0];
+                popup_6ae1729077197429247dbcd57f86c7b7.setContent(html_e5baf90fa05a820e5be47afc20045ff4);
+            
+        
+
+        marker_d72c459a6dc78cb02c75fb76ccff2be8.bindPopup(popup_6ae1729077197429247dbcd57f86c7b7)
+        ;
+
+        
+    
+    
+            marker_d72c459a6dc78cb02c75fb76ccff2be8.bindTooltip(
+                `<div>
+                     Hexham
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_634ff9911f463d8c2d73081e301c2f1d = L.marker(
+                [54.5844087, -5.9340494],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_37dd1b0483867af1a6322b9983310500 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud-bolt", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_634ff9911f463d8c2d73081e301c2f1d.setIcon(icon_37dd1b0483867af1a6322b9983310500);
+        
+    
+        var popup_5d16c3e7de136ee7f1b51e50d2fff893 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3d0bf5e0ad04a70951b36c429ee70fd3 = $(`<div id="html_3d0bf5e0ad04a70951b36c429ee70fd3" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Queens Uni Belfast / Belfast</a><br><br>Climate<br><br>Contact:<br>nan<br>calum.mcgeown@gmail.com</div>`)[0];
+                popup_5d16c3e7de136ee7f1b51e50d2fff893.setContent(html_3d0bf5e0ad04a70951b36c429ee70fd3);
+            
+        
+
+        marker_634ff9911f463d8c2d73081e301c2f1d.bindPopup(popup_5d16c3e7de136ee7f1b51e50d2fff893)
+        ;
+
+        
+    
+    
+            marker_634ff9911f463d8c2d73081e301c2f1d.bindTooltip(
+                `<div>
+                     Queens Uni Belfast / Belfast
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fcd81efe4adfb067f8a0dd94e2e5a4ca = L.marker(
+                [51.4610013, -2.5531961],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_7a1f9a0f1eb287961e4f71be4471d2f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fcd81efe4adfb067f8a0dd94e2e5a4ca.setIcon(icon_7a1f9a0f1eb287961e4f71be4471d2f5);
+        
+    
+        var popup_0afcea1a91f525f80a4c24d3bcc9186a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_29df47e62358f3d9c32a6bc534fa7460 = $(`<div id="html_29df47e62358f3d9c32a6bc534fa7460" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">BS5 Bristol</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_0afcea1a91f525f80a4c24d3bcc9186a.setContent(html_29df47e62358f3d9c32a6bc534fa7460);
+            
+        
+
+        marker_fcd81efe4adfb067f8a0dd94e2e5a4ca.bindPopup(popup_0afcea1a91f525f80a4c24d3bcc9186a)
+        ;
+
+        
+    
+    
+            marker_fcd81efe4adfb067f8a0dd94e2e5a4ca.bindTooltip(
+                `<div>
+                     BS5 Bristol
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b3d1f437ca1e15d371e78d3d597229a4 = L.marker(
+                [50.72648563, -3.528311144],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_f1d48cf05d2855341689bc96ebfd68ba = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b3d1f437ca1e15d371e78d3d597229a4.setIcon(icon_f1d48cf05d2855341689bc96ebfd68ba);
+        
+    
+        var popup_ca435861959927086d3711808680e274 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f65781baae73fe5a635269031049d042 = $(`<div id="html_f65781baae73fe5a635269031049d042" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Exeter</a><br><br>Community<br><br>Contact:<br>Lachlan Ayles<br>lachlan.humanityproject@yahoo.com</div>`)[0];
+                popup_ca435861959927086d3711808680e274.setContent(html_f65781baae73fe5a635269031049d042);
+            
+        
+
+        marker_b3d1f437ca1e15d371e78d3d597229a4.bindPopup(popup_ca435861959927086d3711808680e274)
+        ;
+
+        
+    
+    
+            marker_b3d1f437ca1e15d371e78d3d597229a4.bindTooltip(
+                `<div>
+                     Exeter
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_785ccad478fef99aad9ab199527a0315 = L.marker(
+                [51.62144, -3.943646],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_c9920da0a8a96f2a6acd7855d8bb8002 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_785ccad478fef99aad9ab199527a0315.setIcon(icon_c9920da0a8a96f2a6acd7855d8bb8002);
+        
+    
+        var popup_d7b68df1c53357647eb62b3ded9bddbe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1d4167c89ca23f8ab7676537c44b4fad = $(`<div id="html_1d4167c89ca23f8ab7676537c44b4fad" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Kilvey Hill, Swansea</a><br><br>Community<br><br>Contact:<br>Sue Lyle<br>nan</div>`)[0];
+                popup_d7b68df1c53357647eb62b3ded9bddbe.setContent(html_1d4167c89ca23f8ab7676537c44b4fad);
+            
+        
+
+        marker_785ccad478fef99aad9ab199527a0315.bindPopup(popup_d7b68df1c53357647eb62b3ded9bddbe)
+        ;
+
+        
+    
+    
+            marker_785ccad478fef99aad9ab199527a0315.bindTooltip(
+                `<div>
+                     Kilvey Hill, Swansea
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b685804c5585d0197345200519c674b6 = L.marker(
+                [51.5946799, -3.784097],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_8f90aec7940738d115aaccf856f03c5d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b685804c5585d0197345200519c674b6.setIcon(icon_8f90aec7940738d115aaccf856f03c5d);
+        
+    
+        var popup_8f0af2a4553ccf9bc99070df6effbacf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_593dd1a2fdc6e62d0e0789e27a76f16a = $(`<div id="html_593dd1a2fdc6e62d0e0789e27a76f16a" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Port Talbot</a><br><br>Community<br><br>Contact:<br>gareth<br>nan</div>`)[0];
+                popup_8f0af2a4553ccf9bc99070df6effbacf.setContent(html_593dd1a2fdc6e62d0e0789e27a76f16a);
+            
+        
+
+        marker_b685804c5585d0197345200519c674b6.bindPopup(popup_8f0af2a4553ccf9bc99070df6effbacf)
+        ;
+
+        
+    
+    
+            marker_b685804c5585d0197345200519c674b6.bindTooltip(
+                `<div>
+                     Port Talbot
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e08d4b13c7c00718c3622bf220a8eacd = L.marker(
+                [50.37440371, -4.139352193],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_8d6a1bebb8bf13cdcd3f074138473a1d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e08d4b13c7c00718c3622bf220a8eacd.setIcon(icon_8d6a1bebb8bf13cdcd3f074138473a1d);
+        
+    
+        var popup_b1a6ed4b3907932c84ddf95f4e567588 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_797b58d3450bed16dfca49aa6e2f986e = $(`<div id="html_797b58d3450bed16dfca49aa6e2f986e" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Plymouth</a><br><br>Community<br><br>Contact:<br>Dean & Rachel<br>nan</div>`)[0];
+                popup_b1a6ed4b3907932c84ddf95f4e567588.setContent(html_797b58d3450bed16dfca49aa6e2f986e);
+            
+        
+
+        marker_e08d4b13c7c00718c3622bf220a8eacd.bindPopup(popup_b1a6ed4b3907932c84ddf95f4e567588)
+        ;
+
+        
+    
+    
+            marker_e08d4b13c7c00718c3622bf220a8eacd.bindTooltip(
+                `<div>
+                     Plymouth
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dc9d6115a3f083d645658b21db83a215 = L.marker(
+                [53.4013792, -3.056769],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_b587efae8133af5cd563735dbd5df269 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_dc9d6115a3f083d645658b21db83a215.setIcon(icon_b587efae8133af5cd563735dbd5df269);
+        
+    
+        var popup_c3533a80230ec2679ef2b52206b94f27 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aaf05f1dc0ff127a58a753e1ea500fd3 = $(`<div id="html_aaf05f1dc0ff127a58a753e1ea500fd3" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">North Birkenhead Development Trust</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_c3533a80230ec2679ef2b52206b94f27.setContent(html_aaf05f1dc0ff127a58a753e1ea500fd3);
+            
+        
+
+        marker_dc9d6115a3f083d645658b21db83a215.bindPopup(popup_c3533a80230ec2679ef2b52206b94f27)
+        ;
+
+        
+    
+    
+            marker_dc9d6115a3f083d645658b21db83a215.bindTooltip(
+                `<div>
+                     North Birkenhead Development Trust
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dd9db4f9b5967592fd8b57816d03f709 = L.marker(
+                [51.4935082, -0.1178424],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_be965e4e5a3a36e6914e9063ea8bcfef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "rainbow", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_dd9db4f9b5967592fd8b57816d03f709.setIcon(icon_be965e4e5a3a36e6914e9063ea8bcfef);
+        
+    
+        var popup_fd9f45d5872b959cb62a75f220c0d425 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1568b36d149d2526c55ffebae08a362d = $(`<div id="html_1568b36d149d2526c55ffebae08a362d" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Lambeth Black Assembly</a><br><br>BIPOC Rights<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_fd9f45d5872b959cb62a75f220c0d425.setContent(html_1568b36d149d2526c55ffebae08a362d);
+            
+        
+
+        marker_dd9db4f9b5967592fd8b57816d03f709.bindPopup(popup_fd9f45d5872b959cb62a75f220c0d425)
+        ;
+
+        
+    
+    
+            marker_dd9db4f9b5967592fd8b57816d03f709.bindTooltip(
+                `<div>
+                     Lambeth Black Assembly
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2e5ac0960d4746a82ea334f92923268a = L.marker(
+                [51.4935082, -0.1178424],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_9e9ebfff77544add96637c8f11ad14ab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "hand-back-fist", "iconColor": "white", "markerColor": "darkred", "prefix": "fa"}
+            );
+            marker_2e5ac0960d4746a82ea334f92923268a.setIcon(icon_9e9ebfff77544add96637c8f11ad14ab);
+        
+    
+        var popup_b6441a1ecc55194c8a76a771aaa16efd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6aa04a867a1fc55cbcf3c146bf8e7a36 = $(`<div id="html_6aa04a867a1fc55cbcf3c146bf8e7a36" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Lambeth Black Assembly</a><br><br>Black & Asian<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_b6441a1ecc55194c8a76a771aaa16efd.setContent(html_6aa04a867a1fc55cbcf3c146bf8e7a36);
+            
+        
+
+        marker_2e5ac0960d4746a82ea334f92923268a.bindPopup(popup_b6441a1ecc55194c8a76a771aaa16efd)
+        ;
+
+        
+    
+    
+            marker_2e5ac0960d4746a82ea334f92923268a.bindTooltip(
+                `<div>
+                     Lambeth Black Assembly
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_967d3495822eb8979e739fb5d2de197a = L.marker(
+                [51.5901769, -0.0173437],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_afd3e445c917778023ff350f1dfe21cd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_967d3495822eb8979e739fb5d2de197a.setIcon(icon_afd3e445c917778023ff350f1dfe21cd);
+        
+    
+        var popup_48a2c776735febbac4d240c8f0827f8b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f7e73cf57ed1cb9b8d0737ec2dcd0780 = $(`<div id="html_f7e73cf57ed1cb9b8d0737ec2dcd0780" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Walthamstow</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_48a2c776735febbac4d240c8f0827f8b.setContent(html_f7e73cf57ed1cb9b8d0737ec2dcd0780);
+            
+        
+
+        marker_967d3495822eb8979e739fb5d2de197a.bindPopup(popup_48a2c776735febbac4d240c8f0827f8b)
+        ;
+
+        
+    
+    
+            marker_967d3495822eb8979e739fb5d2de197a.bindTooltip(
+                `<div>
+                     Walthamstow
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0ab95dd12951edcbafd2b57ef82638b0 = L.marker(
+                [51.5901769, -0.0173437],
+                {}
+            ).addTo(feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd);
+        
+    
+            var icon_96d6419a8b119a6eec72ab440b6dc994 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0ab95dd12951edcbafd2b57ef82638b0.setIcon(icon_96d6419a8b119a6eec72ab440b6dc994);
+        
+    
+        var popup_dda5b548ccb5bcacadcc9459e5686ed0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3d26f8d4e424c7aafddfa5c4a289533e = $(`<div id="html_3d26f8d4e424c7aafddfa5c4a289533e" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Walthamstow</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_dda5b548ccb5bcacadcc9459e5686ed0.setContent(html_3d26f8d4e424c7aafddfa5c4a289533e);
+            
+        
+
+        marker_0ab95dd12951edcbafd2b57ef82638b0.bindPopup(popup_dda5b548ccb5bcacadcc9459e5686ed0)
+        ;
+
+        
+    
+    
+            marker_0ab95dd12951edcbafd2b57ef82638b0.bindTooltip(
+                `<div>
+                     Walthamstow
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd.addTo(map_2572ec95c8182556fb718ab8f3b68ca7);
+        
+    
+            var feature_group_b00312d35149e8f17be32d6afc492f26 = L.featureGroup(
+                {}
+            );
+        
+    
+            var marker_49b1b2310427cd463236c3950c0f51a2 = L.marker(
+                [51.4610013, -2.5531961],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_e4e3ddc6cf97b8178294d0096a8c7fd8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "graduation-cap", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_49b1b2310427cd463236c3950c0f51a2.setIcon(icon_e4e3ddc6cf97b8178294d0096a8c7fd8);
+        
+    
+        var popup_e821591ab411b02842710879d3797226 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3707a6df8c527e5e33164b734d92b6f7 = $(`<div id="html_3707a6df8c527e5e33164b734d92b6f7" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">BS5 Bristol</a><br><br>Youth<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_e821591ab411b02842710879d3797226.setContent(html_3707a6df8c527e5e33164b734d92b6f7);
+            
+        
+
+        marker_49b1b2310427cd463236c3950c0f51a2.bindPopup(popup_e821591ab411b02842710879d3797226)
+        ;
+
+        
+    
+    
+            marker_49b1b2310427cd463236c3950c0f51a2.bindTooltip(
+                `<div>
+                     BS5 Bristol
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_40c96a23ff256683dad822a2d189f48b = L.marker(
+                [50.497003, -4.202055],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_49b7492d40ef0cedd313ffa8bda72d69 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_40c96a23ff256683dad822a2d189f48b.setIcon(icon_49b7492d40ef0cedd313ffa8bda72d69);
+        
+    
+        var popup_45adeaaef1e6d25b4b18f6d2421787d3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_885e4b45a68f4a1bf64f689257185a37 = $(`<div id="html_885e4b45a68f4a1bf64f689257185a37" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Calstock</a><br><br>Community<br><br>Contact:<br>Erika<br>hebe3@hotmail.co.uk</div>`)[0];
+                popup_45adeaaef1e6d25b4b18f6d2421787d3.setContent(html_885e4b45a68f4a1bf64f689257185a37);
+            
+        
+
+        marker_40c96a23ff256683dad822a2d189f48b.bindPopup(popup_45adeaaef1e6d25b4b18f6d2421787d3)
+        ;
+
+        
+    
+    
+            marker_40c96a23ff256683dad822a2d189f48b.bindTooltip(
+                `<div>
+                     Calstock
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f7513c30d9db65de98c6002f9e2dd156 = L.marker(
+                [50.2641159, -5.0512475],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_5b26c126136ead5fefe9eefc5af11308 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud-bolt", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_f7513c30d9db65de98c6002f9e2dd156.setIcon(icon_5b26c126136ead5fefe9eefc5af11308);
+        
+    
+        var popup_0b92e38df8b3ed90dfb1d5754597e637 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2c4f8c298b81b84a08ef84884e250172 = $(`<div id="html_2c4f8c298b81b84a08ef84884e250172" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Truro Cathedral, Cornwall</a><br><br>Climate<br><br>Contact:<br>mighal<br>nan</div>`)[0];
+                popup_0b92e38df8b3ed90dfb1d5754597e637.setContent(html_2c4f8c298b81b84a08ef84884e250172);
+            
+        
+
+        marker_f7513c30d9db65de98c6002f9e2dd156.bindPopup(popup_0b92e38df8b3ed90dfb1d5754597e637)
+        ;
+
+        
+    
+    
+            marker_f7513c30d9db65de98c6002f9e2dd156.bindTooltip(
+                `<div>
+                     Truro Cathedral, Cornwall
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1c3eb30e2696b7106873817473d46186 = L.marker(
+                [51.097391, 0.033222],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_e951c4813a21e507e3f1153f77485d74 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1c3eb30e2696b7106873817473d46186.setIcon(icon_e951c4813a21e507e3f1153f77485d74);
+        
+    
+        var popup_f692b957dd90f1fbf80eecad425056af = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5082150ad75e2bbc7cdd9cc46cec7e92 = $(`<div id="html_5082150ad75e2bbc7cdd9cc46cec7e92" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Forest Row</a><br><br>Community<br><br>Contact:<br>Ben Christie<br>bahchristie@gmail.com</div>`)[0];
+                popup_f692b957dd90f1fbf80eecad425056af.setContent(html_5082150ad75e2bbc7cdd9cc46cec7e92);
+            
+        
+
+        marker_1c3eb30e2696b7106873817473d46186.bindPopup(popup_f692b957dd90f1fbf80eecad425056af)
+        ;
+
+        
+    
+    
+            marker_1c3eb30e2696b7106873817473d46186.bindTooltip(
+                `<div>
+                     Forest Row
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ac505a6132b0601778b88c220cb8b081 = L.marker(
+                [51.576084, 0.488736],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_2f0846cf6521d02248f1cf3729e9be44 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ac505a6132b0601778b88c220cb8b081.setIcon(icon_2f0846cf6521d02248f1cf3729e9be44);
+        
+    
+        var popup_5cd381bfff87dcd250809273c8819d6d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ebd044581be70d7c4e929646e08aa768 = $(`<div id="html_ebd044581be70d7c4e929646e08aa768" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Basildon</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_5cd381bfff87dcd250809273c8819d6d.setContent(html_ebd044581be70d7c4e929646e08aa768);
+            
+        
+
+        marker_ac505a6132b0601778b88c220cb8b081.bindPopup(popup_5cd381bfff87dcd250809273c8819d6d)
+        ;
+
+        
+    
+    
+            marker_ac505a6132b0601778b88c220cb8b081.bindTooltip(
+                `<div>
+                     Basildon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_53e8b17f75ffb7cc646f38445b89e4ee = L.marker(
+                [52.2469041, 0.7112514],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_41d7d4bde4a3742d240f7acfd8110b11 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_53e8b17f75ffb7cc646f38445b89e4ee.setIcon(icon_41d7d4bde4a3742d240f7acfd8110b11);
+        
+    
+        var popup_3e20d989f72dc3411fde3c2ee4567153 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dfc05cd1f7bdd94763613e500e1a3680 = $(`<div id="html_dfc05cd1f7bdd94763613e500e1a3680" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Bury St Edmunds</a><br><br>Community<br><br>Contact:<br>gabby<br>nan</div>`)[0];
+                popup_3e20d989f72dc3411fde3c2ee4567153.setContent(html_dfc05cd1f7bdd94763613e500e1a3680);
+            
+        
+
+        marker_53e8b17f75ffb7cc646f38445b89e4ee.bindPopup(popup_3e20d989f72dc3411fde3c2ee4567153)
+        ;
+
+        
+    
+    
+            marker_53e8b17f75ffb7cc646f38445b89e4ee.bindTooltip(
+                `<div>
+                     Bury St Edmunds
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0436c3f848b5c30840594f75960ab83 = L.marker(
+                [52.1950788, 0.1312729],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_ce712ceaa06693a6255f4ea70f7232c7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e0436c3f848b5c30840594f75960ab83.setIcon(icon_ce712ceaa06693a6255f4ea70f7232c7);
+        
+    
+        var popup_fc98dbad8d110eaeb073cfa04e1071f5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6832cfdfb1f06d93c44752c06532cfcb = $(`<div id="html_6832cfdfb1f06d93c44752c06532cfcb" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Cambridge</a><br><br>Community<br><br>Contact:<br>Gabby<br>nan</div>`)[0];
+                popup_fc98dbad8d110eaeb073cfa04e1071f5.setContent(html_6832cfdfb1f06d93c44752c06532cfcb);
+            
+        
+
+        marker_e0436c3f848b5c30840594f75960ab83.bindPopup(popup_fc98dbad8d110eaeb073cfa04e1071f5)
+        ;
+
+        
+    
+    
+            marker_e0436c3f848b5c30840594f75960ab83.bindTooltip(
+                `<div>
+                     Cambridge
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ffd946e746076672b55110c99587d05d = L.marker(
+                [52.056736, 1.14822],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_9386530ae6e8dc2e56d12c2da73488a5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ffd946e746076672b55110c99587d05d.setIcon(icon_9386530ae6e8dc2e56d12c2da73488a5);
+        
+    
+        var popup_699f4ba0400e89c23df0c3f4969dbb7f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f73919d115bff270885259b47acc0be6 = $(`<div id="html_f73919d115bff270885259b47acc0be6" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Ipswich</a><br><br>Community<br><br>Contact:<br>gabby<br>nan</div>`)[0];
+                popup_699f4ba0400e89c23df0c3f4969dbb7f.setContent(html_f73919d115bff270885259b47acc0be6);
+            
+        
+
+        marker_ffd946e746076672b55110c99587d05d.bindPopup(popup_699f4ba0400e89c23df0c3f4969dbb7f)
+        ;
+
+        
+    
+    
+            marker_ffd946e746076672b55110c99587d05d.bindTooltip(
+                `<div>
+                     Ipswich
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b1c30d73577c60bcf1bec5db74ec28ca = L.marker(
+                [52.6292567, 1.2978802],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_6629af2bdcabf82860cfd1aebcb8d7ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b1c30d73577c60bcf1bec5db74ec28ca.setIcon(icon_6629af2bdcabf82860cfd1aebcb8d7ca);
+        
+    
+        var popup_851a2f9d90fd308a6e3f8dc95c238813 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3847f603db63c37dd97ebb062c9daa58 = $(`<div id="html_3847f603db63c37dd97ebb062c9daa58" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Norwich</a><br><br>Community<br><br>Contact:<br>Gabby<br>nan</div>`)[0];
+                popup_851a2f9d90fd308a6e3f8dc95c238813.setContent(html_3847f603db63c37dd97ebb062c9daa58);
+            
+        
+
+        marker_b1c30d73577c60bcf1bec5db74ec28ca.bindPopup(popup_851a2f9d90fd308a6e3f8dc95c238813)
+        ;
+
+        
+    
+    
+            marker_b1c30d73577c60bcf1bec5db74ec28ca.bindTooltip(
+                `<div>
+                     Norwich
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_26fa18ddd4f816c53dbbc7f56b8d0f1d = L.marker(
+                [53.381129, -1.470085],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_b32612cbdff9db1603f3e3f8c983abc8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_26fa18ddd4f816c53dbbc7f56b8d0f1d.setIcon(icon_b32612cbdff9db1603f3e3f8c983abc8);
+        
+    
+        var popup_7388849dee221c13f9b994797468d1d0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c2219ddc178b86340ca70151eb6c4ef3 = $(`<div id="html_c2219ddc178b86340ca70151eb6c4ef3" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Sheffield</a><br><br>Community<br><br>Contact:<br>ci<br>nan</div>`)[0];
+                popup_7388849dee221c13f9b994797468d1d0.setContent(html_c2219ddc178b86340ca70151eb6c4ef3);
+            
+        
+
+        marker_26fa18ddd4f816c53dbbc7f56b8d0f1d.bindPopup(popup_7388849dee221c13f9b994797468d1d0)
+        ;
+
+        
+    
+    
+            marker_26fa18ddd4f816c53dbbc7f56b8d0f1d.bindTooltip(
+                `<div>
+                     Sheffield
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c0bcadea7999b750ea93f123023038df = L.marker(
+                [51.7520209, -1.2577263],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_7e17b84d97edd4d6ae1a63c77cecddf5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c0bcadea7999b750ea93f123023038df.setIcon(icon_7e17b84d97edd4d6ae1a63c77cecddf5);
+        
+    
+        var popup_29a4c8cdf5068cfe5264153094d5d3bb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b09c66b235a31cfc3ad759fac629f3b0 = $(`<div id="html_b09c66b235a31cfc3ad759fac629f3b0" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Oxford</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_29a4c8cdf5068cfe5264153094d5d3bb.setContent(html_b09c66b235a31cfc3ad759fac629f3b0);
+            
+        
+
+        marker_c0bcadea7999b750ea93f123023038df.bindPopup(popup_29a4c8cdf5068cfe5264153094d5d3bb)
+        ;
+
+        
+    
+    
+            marker_c0bcadea7999b750ea93f123023038df.bindTooltip(
+                `<div>
+                     Oxford
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bd8c80c51532a661b558d190ab52d42f = L.marker(
+                [51.67078, -1.2879529],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_65921168ae78ddd53633e95479bfb824 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_bd8c80c51532a661b558d190ab52d42f.setIcon(icon_65921168ae78ddd53633e95479bfb824);
+        
+    
+        var popup_d90b29d915cf1fef4ca8d1856f05db7e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f7b92c97db95b55055f3deb49af3e263 = $(`<div id="html_f7b92c97db95b55055f3deb49af3e263" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Abingdon</a><br><br>Community<br><br>Contact:<br>michelle<br>nan</div>`)[0];
+                popup_d90b29d915cf1fef4ca8d1856f05db7e.setContent(html_f7b92c97db95b55055f3deb49af3e263);
+            
+        
+
+        marker_bd8c80c51532a661b558d190ab52d42f.bindPopup(popup_d90b29d915cf1fef4ca8d1856f05db7e)
+        ;
+
+        
+    
+    
+            marker_bd8c80c51532a661b558d190ab52d42f.bindTooltip(
+                `<div>
+                     Abingdon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_136feba24579626903c3cea6f7d739b4 = L.marker(
+                [52.2851905, -1.5200789],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_ebf67fe716b9cdc5c60f5ac4458ec0ba = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_136feba24579626903c3cea6f7d739b4.setIcon(icon_ebf67fe716b9cdc5c60f5ac4458ec0ba);
+        
+    
+        var popup_71c3ec59aa42c0b716c7fce90f3e8416 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_47c5663ebc777cb859ca70c2f453faed = $(`<div id="html_47c5663ebc777cb859ca70c2f453faed" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Lemington Spa/coventry</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_71c3ec59aa42c0b716c7fce90f3e8416.setContent(html_47c5663ebc777cb859ca70c2f453faed);
+            
+        
+
+        marker_136feba24579626903c3cea6f7d739b4.bindPopup(popup_71c3ec59aa42c0b716c7fce90f3e8416)
+        ;
+
+        
+    
+    
+            marker_136feba24579626903c3cea6f7d739b4.bindTooltip(
+                `<div>
+                     Lemington Spa/coventry
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ae8bbcc40fbb010e9832326f778ae8fe = L.marker(
+                [53.5933498, -2.2966054],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_087035cc8bca0d7d1d8990c827eba630 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ae8bbcc40fbb010e9832326f778ae8fe.setIcon(icon_087035cc8bca0d7d1d8990c827eba630);
+        
+    
+        var popup_1dd31e4c83cdfe0a48010043246e298b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_73070e1d58df3e036c5579c5349a9e42 = $(`<div id="html_73070e1d58df3e036c5579c5349a9e42" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Bolton/Bury</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_1dd31e4c83cdfe0a48010043246e298b.setContent(html_73070e1d58df3e036c5579c5349a9e42);
+            
+        
+
+        marker_ae8bbcc40fbb010e9832326f778ae8fe.bindPopup(popup_1dd31e4c83cdfe0a48010043246e298b)
+        ;
+
+        
+    
+    
+            marker_ae8bbcc40fbb010e9832326f778ae8fe.bindTooltip(
+                `<div>
+                     Bolton/Bury
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e23411b522bf02fe199b92b460c541aa = L.marker(
+                [50.54726492, -2.433752833],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_a122b57d39562beade39b07236a2485e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e23411b522bf02fe199b92b460c541aa.setIcon(icon_a122b57d39562beade39b07236a2485e);
+        
+    
+        var popup_798bd9c4dc31a4ec434e3fe01d40f073 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3465e7c468d310709e31901dea2a263d = $(`<div id="html_3465e7c468d310709e31901dea2a263d" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Portland</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_798bd9c4dc31a4ec434e3fe01d40f073.setContent(html_3465e7c468d310709e31901dea2a263d);
+            
+        
+
+        marker_e23411b522bf02fe199b92b460c541aa.bindPopup(popup_798bd9c4dc31a4ec434e3fe01d40f073)
+        ;
+
+        
+    
+    
+            marker_e23411b522bf02fe199b92b460c541aa.bindTooltip(
+                `<div>
+                     Portland
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5b45bb1b027815f5b540f51b3948b52d = L.marker(
+                [50.854259, 0.573453],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_cdc954ca047ae2cc8ff8a71ff1894e26 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5b45bb1b027815f5b540f51b3948b52d.setIcon(icon_cdc954ca047ae2cc8ff8a71ff1894e26);
+        
+    
+        var popup_e56b4cb9afe2707ffb18c39c3a85f7c3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_379cf59fa5bbc664392e6b552ba058e2 = $(`<div id="html_379cf59fa5bbc664392e6b552ba058e2" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Hastings</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_e56b4cb9afe2707ffb18c39c3a85f7c3.setContent(html_379cf59fa5bbc664392e6b552ba058e2);
+            
+        
+
+        marker_5b45bb1b027815f5b540f51b3948b52d.bindPopup(popup_e56b4cb9afe2707ffb18c39c3a85f7c3)
+        ;
+
+        
+    
+    
+            marker_5b45bb1b027815f5b540f51b3948b52d.bindTooltip(
+                `<div>
+                     Hastings
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c5b8d013216296e7c66ab2d3c75338c1 = L.marker(
+                [51.628611, -0.748229],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_4c64637ab56afd716c5e059c80c9c6dd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c5b8d013216296e7c66ab2d3c75338c1.setIcon(icon_4c64637ab56afd716c5e059c80c9c6dd);
+        
+    
+        var popup_1dab995e5a03c407016cb0735af4642a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f7139404d5cd2d3a9d70248b180ff7ee = $(`<div id="html_f7139404d5cd2d3a9d70248b180ff7ee" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">High Wycombe</a><br><br>Community<br><br>Contact:<br>Dora<br>dora.earth@outlook.com</div>`)[0];
+                popup_1dab995e5a03c407016cb0735af4642a.setContent(html_f7139404d5cd2d3a9d70248b180ff7ee);
+            
+        
+
+        marker_c5b8d013216296e7c66ab2d3c75338c1.bindPopup(popup_1dab995e5a03c407016cb0735af4642a)
+        ;
+
+        
+    
+    
+            marker_c5b8d013216296e7c66ab2d3c75338c1.bindTooltip(
+                `<div>
+                     High Wycombe
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_277bb542dff3412b2e38d1c0637e3f34 = L.marker(
+                [54.0449072, -2.7993467],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_a85c6d6a51c56fcf117005bc9c212c81 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_277bb542dff3412b2e38d1c0637e3f34.setIcon(icon_a85c6d6a51c56fcf117005bc9c212c81);
+        
+    
+        var popup_873c36b5eb507e3cd6d7293a374fdb6d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9f53743e7e863c60dacb6f6bb81f6942 = $(`<div id="html_9f53743e7e863c60dacb6f6bb81f6942" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Lancaster</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_873c36b5eb507e3cd6d7293a374fdb6d.setContent(html_9f53743e7e863c60dacb6f6bb81f6942);
+            
+        
+
+        marker_277bb542dff3412b2e38d1c0637e3f34.bindPopup(popup_873c36b5eb507e3cd6d7293a374fdb6d)
+        ;
+
+        
+    
+    
+            marker_277bb542dff3412b2e38d1c0637e3f34.bindTooltip(
+                `<div>
+                     Lancaster
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2dd17345b5c3d38cea5c44a202dbc1e3 = L.marker(
+                [54.328006, -2.74629],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_f932dc9ec2b7ea7dd6fd1fa07f9dac9d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2dd17345b5c3d38cea5c44a202dbc1e3.setIcon(icon_f932dc9ec2b7ea7dd6fd1fa07f9dac9d);
+        
+    
+        var popup_448a4b58ad64472e72f3549e3ec2886f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e86713fabc35ea18f6907e96ad636754 = $(`<div id="html_e86713fabc35ea18f6907e96ad636754" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Kendal</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_448a4b58ad64472e72f3549e3ec2886f.setContent(html_e86713fabc35ea18f6907e96ad636754);
+            
+        
+
+        marker_2dd17345b5c3d38cea5c44a202dbc1e3.bindPopup(popup_448a4b58ad64472e72f3549e3ec2886f)
+        ;
+
+        
+    
+    
+            marker_2dd17345b5c3d38cea5c44a202dbc1e3.bindTooltip(
+                `<div>
+                     Kendal
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_554f5e44adf62e417329e15433443a41 = L.marker(
+                [54.283113, -0.399752],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_16ddb3c27e0d16d8d38bdfa19ee14ff9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_554f5e44adf62e417329e15433443a41.setIcon(icon_16ddb3c27e0d16d8d38bdfa19ee14ff9);
+        
+    
+        var popup_485da8834f645351feff566235857b9d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa703e16aae4b214b48506b93bc38006 = $(`<div id="html_fa703e16aae4b214b48506b93bc38006" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Scarborough</a><br><br>Community<br><br>Contact:<br>steph<br>nan</div>`)[0];
+                popup_485da8834f645351feff566235857b9d.setContent(html_fa703e16aae4b214b48506b93bc38006);
+            
+        
+
+        marker_554f5e44adf62e417329e15433443a41.bindPopup(popup_485da8834f645351feff566235857b9d)
+        ;
+
+        
+    
+    
+            marker_554f5e44adf62e417329e15433443a41.bindTooltip(
+                `<div>
+                     Scarborough
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c883828da761d12a4edb674502067573 = L.marker(
+                [53.76284204, -2.70333228],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_bbd0cf7080b2656b0b8f6dd1ad22fdfd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c883828da761d12a4edb674502067573.setIcon(icon_bbd0cf7080b2656b0b8f6dd1ad22fdfd);
+        
+    
+        var popup_70294a1a01cb02bdeebeacfa7868939d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f2c27f1f68262cbc7288e5e50bf041f3 = $(`<div id="html_f2c27f1f68262cbc7288e5e50bf041f3" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Preston</a><br><br>Community<br><br>Contact:<br>sid<br>nan</div>`)[0];
+                popup_70294a1a01cb02bdeebeacfa7868939d.setContent(html_f2c27f1f68262cbc7288e5e50bf041f3);
+            
+        
+
+        marker_c883828da761d12a4edb674502067573.bindPopup(popup_70294a1a01cb02bdeebeacfa7868939d)
+        ;
+
+        
+    
+    
+            marker_c883828da761d12a4edb674502067573.bindTooltip(
+                `<div>
+                     Preston
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1d9b7a19de9b48aa07c2b80425468ffd = L.marker(
+                [50.152571, -5.06627],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_bf4f99f2e6d83144e8c5c709ee513b17 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud-bolt", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_1d9b7a19de9b48aa07c2b80425468ffd.setIcon(icon_bf4f99f2e6d83144e8c5c709ee513b17);
+        
+    
+        var popup_01df8b628459e67f23113b3398245ed5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1dd7c5ae71791761c6bb061aaab13456 = $(`<div id="html_1dd7c5ae71791761c6bb061aaab13456" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Falmouth F4F</a><br><br>Climate<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_01df8b628459e67f23113b3398245ed5.setContent(html_1dd7c5ae71791761c6bb061aaab13456);
+            
+        
+
+        marker_1d9b7a19de9b48aa07c2b80425468ffd.bindPopup(popup_01df8b628459e67f23113b3398245ed5)
+        ;
+
+        
+    
+    
+            marker_1d9b7a19de9b48aa07c2b80425468ffd.bindTooltip(
+                `<div>
+                     Falmouth F4F
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6308a6cea7bc9c615c638217788081b3 = L.marker(
+                [51.3781018, -2.3596827],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_70f345d3727b068a61c9b3c7ab13a6e9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6308a6cea7bc9c615c638217788081b3.setIcon(icon_70f345d3727b068a61c9b3c7ab13a6e9);
+        
+    
+        var popup_ad553529801c2007985f18c08c9673f0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bef5606f689c135fc70b6d30521a758c = $(`<div id="html_bef5606f689c135fc70b6d30521a758c" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Bath</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_ad553529801c2007985f18c08c9673f0.setContent(html_bef5606f689c135fc70b6d30521a758c);
+            
+        
+
+        marker_6308a6cea7bc9c615c638217788081b3.bindPopup(popup_ad553529801c2007985f18c08c9673f0)
+        ;
+
+        
+    
+    
+            marker_6308a6cea7bc9c615c638217788081b3.bindTooltip(
+                `<div>
+                     Bath
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_890e920676de14244e047c3880dca31f = L.marker(
+                [52.075697, -3.125908],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_6f369353ed03d7b80df9f45d6165d0a9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_890e920676de14244e047c3880dca31f.setIcon(icon_6f369353ed03d7b80df9f45d6165d0a9);
+        
+    
+        var popup_7069c9e23d5b05abe59da3dba78b62e5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4a186d0a1a464cf9106820c66d7bdde1 = $(`<div id="html_4a186d0a1a464cf9106820c66d7bdde1" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Hay-on-Wye</a><br><br>Community<br><br>Contact:<br>Sarah Whitley Sian Cox<br>nan</div>`)[0];
+                popup_7069c9e23d5b05abe59da3dba78b62e5.setContent(html_4a186d0a1a464cf9106820c66d7bdde1);
+            
+        
+
+        marker_890e920676de14244e047c3880dca31f.bindPopup(popup_7069c9e23d5b05abe59da3dba78b62e5)
+        ;
+
+        
+    
+    
+            marker_890e920676de14244e047c3880dca31f.bindTooltip(
+                `<div>
+                     Hay-on-Wye
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c09bbb437f41d70569f2904354558748 = L.marker(
+                [53.183906, -3.425002],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_53e581775ed9a974d8f126b4e5abd930 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c09bbb437f41d70569f2904354558748.setIcon(icon_53e581775ed9a974d8f126b4e5abd930);
+        
+    
+        var popup_4558a704a59048c113f044fc41b0292d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_17192c8d3394b5008b9380f7c237522e = $(`<div id="html_17192c8d3394b5008b9380f7c237522e" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Denbigh</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_4558a704a59048c113f044fc41b0292d.setContent(html_17192c8d3394b5008b9380f7c237522e);
+            
+        
+
+        marker_c09bbb437f41d70569f2904354558748.bindPopup(popup_4558a704a59048c113f044fc41b0292d)
+        ;
+
+        
+    
+    
+            marker_c09bbb437f41d70569f2904354558748.bindTooltip(
+                `<div>
+                     Denbigh
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2221d02782e57cbdba5fa1393fec0af3 = L.marker(
+                [50.433741, -3.685797],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_8746c4b13596cdde4bde30ab69502d54 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2221d02782e57cbdba5fa1393fec0af3.setIcon(icon_8746c4b13596cdde4bde30ab69502d54);
+        
+    
+        var popup_80fc6e76ec48224ef10fe48a29b726a3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_50f563146d318cef6af65fb6ec1a102a = $(`<div id="html_50f563146d318cef6af65fb6ec1a102a" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Totnes</a><br><br>Community<br><br>Contact:<br>Tobias<br>nan</div>`)[0];
+                popup_80fc6e76ec48224ef10fe48a29b726a3.setContent(html_50f563146d318cef6af65fb6ec1a102a);
+            
+        
+
+        marker_2221d02782e57cbdba5fa1393fec0af3.bindPopup(popup_80fc6e76ec48224ef10fe48a29b726a3)
+        ;
+
+        
+    
+    
+            marker_2221d02782e57cbdba5fa1393fec0af3.bindTooltip(
+                `<div>
+                     Totnes
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2999dc7468748463e8d27849aed5dcc9 = L.marker(
+                [50.37620556, -4.144234344],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_4e551daf7941950be42e9ba194fc63bb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2999dc7468748463e8d27849aed5dcc9.setIcon(icon_4e551daf7941950be42e9ba194fc63bb);
+        
+    
+        var popup_9baca29371f3c74ecda58d5a17158830 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6222a380a24f0d5ee318fb2bf6084f17 = $(`<div id="html_6222a380a24f0d5ee318fb2bf6084f17" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Plymouth</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_9baca29371f3c74ecda58d5a17158830.setContent(html_6222a380a24f0d5ee318fb2bf6084f17);
+            
+        
+
+        marker_2999dc7468748463e8d27849aed5dcc9.bindPopup(popup_9baca29371f3c74ecda58d5a17158830)
+        ;
+
+        
+    
+    
+            marker_2999dc7468748463e8d27849aed5dcc9.bindTooltip(
+                `<div>
+                     Plymouth
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c1e447a8bef0ff26a67a7a0ba03d049b = L.marker(
+                [51.58515302, -2.998174926],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_532a561581fc596d8fee43d17b384b14 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c1e447a8bef0ff26a67a7a0ba03d049b.setIcon(icon_532a561581fc596d8fee43d17b384b14);
+        
+    
+        var popup_aad2299ba997b4291cbb89c1955e64dc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_da82766a857d07e8c9039dea3b18f4ec = $(`<div id="html_da82766a857d07e8c9039dea3b18f4ec" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Newport</a><br><br>Community<br><br>Contact:<br>Hope<br>nan</div>`)[0];
+                popup_aad2299ba997b4291cbb89c1955e64dc.setContent(html_da82766a857d07e8c9039dea3b18f4ec);
+            
+        
+
+        marker_c1e447a8bef0ff26a67a7a0ba03d049b.bindPopup(popup_aad2299ba997b4291cbb89c1955e64dc)
+        ;
+
+        
+    
+    
+            marker_c1e447a8bef0ff26a67a7a0ba03d049b.bindTooltip(
+                `<div>
+                     Newport
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b5cc9f5b51441c6692f81fc42f489553 = L.marker(
+                [52.0406224, -0.7594171],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_d3a841bfae06c02ffe9874246e90ac9b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b5cc9f5b51441c6692f81fc42f489553.setIcon(icon_d3a841bfae06c02ffe9874246e90ac9b);
+        
+    
+        var popup_e328f0b6d206d115b2eff61d4635a086 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e84ec542de1be644abd23cb33f706046 = $(`<div id="html_e84ec542de1be644abd23cb33f706046" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Milton keynes</a><br><br>Community<br><br>Contact:<br>Gabby<br>nan</div>`)[0];
+                popup_e328f0b6d206d115b2eff61d4635a086.setContent(html_e84ec542de1be644abd23cb33f706046);
+            
+        
+
+        marker_b5cc9f5b51441c6692f81fc42f489553.bindPopup(popup_e328f0b6d206d115b2eff61d4635a086)
+        ;
+
+        
+    
+    
+            marker_b5cc9f5b51441c6692f81fc42f489553.bindTooltip(
+                `<div>
+                     Milton keynes
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_23a278815054bf7fe704c264d6b8869c = L.marker(
+                [53.7676236, -0.3274198],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_3c1af5fd362084078cdd7c2e116116f9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_23a278815054bf7fe704c264d6b8869c.setIcon(icon_3c1af5fd362084078cdd7c2e116116f9);
+        
+    
+        var popup_73be3eeb5b02bfcb7862beb12a60d924 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_83bf42d2020929141724912c8b4c0857 = $(`<div id="html_83bf42d2020929141724912c8b4c0857" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Cooperation Hull</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_73be3eeb5b02bfcb7862beb12a60d924.setContent(html_83bf42d2020929141724912c8b4c0857);
+            
+        
+
+        marker_23a278815054bf7fe704c264d6b8869c.bindPopup(popup_73be3eeb5b02bfcb7862beb12a60d924)
+        ;
+
+        
+    
+    
+            marker_23a278815054bf7fe704c264d6b8869c.bindTooltip(
+                `<div>
+                     Cooperation Hull
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_964a42023f7eaab3eb52457925439fa4 = L.marker(
+                [54.9664387, -1.7189442],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_fd4a6482a3ee16c2edd2399f0107cba9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_964a42023f7eaab3eb52457925439fa4.setIcon(icon_fd4a6482a3ee16c2edd2399f0107cba9);
+        
+    
+        var popup_b7b65f0c1d69e355c71c6cb47cc1bd48 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fc55241d83b24d7e7f6c7ac6c6a2add6 = $(`<div id="html_fc55241d83b24d7e7f6c7ac6c6a2add6" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">NE Youth, Newcastle</a><br><br>Community<br><br>Contact:<br>keith<br>nan</div>`)[0];
+                popup_b7b65f0c1d69e355c71c6cb47cc1bd48.setContent(html_fc55241d83b24d7e7f6c7ac6c6a2add6);
+            
+        
+
+        marker_964a42023f7eaab3eb52457925439fa4.bindPopup(popup_b7b65f0c1d69e355c71c6cb47cc1bd48)
+        ;
+
+        
+    
+    
+            marker_964a42023f7eaab3eb52457925439fa4.bindTooltip(
+                `<div>
+                     NE Youth, Newcastle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4a9b4ed500626099aa63583c23fc1fc9 = L.marker(
+                [52.08315904, -4.66000785],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_97c9d7d0ff5da9623bb647550efc056c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4a9b4ed500626099aa63583c23fc1fc9.setIcon(icon_97c9d7d0ff5da9623bb647550efc056c);
+        
+    
+        var popup_d0c0bb102dcb370997c3d7a8c33078d3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3f6c5070dba878ae5cae4b98ccdfefa9 = $(`<div id="html_3f6c5070dba878ae5cae4b98ccdfefa9" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Cardigan</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_d0c0bb102dcb370997c3d7a8c33078d3.setContent(html_3f6c5070dba878ae5cae4b98ccdfefa9);
+            
+        
+
+        marker_4a9b4ed500626099aa63583c23fc1fc9.bindPopup(popup_d0c0bb102dcb370997c3d7a8c33078d3)
+        ;
+
+        
+    
+    
+            marker_4a9b4ed500626099aa63583c23fc1fc9.bindTooltip(
+                `<div>
+                     Cardigan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b3e2eca8d8cb26332c3fa79db4c186b = L.marker(
+                [51.5390261, -0.1425516],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_1f3618545a608078511901381e770a24 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "person", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_3b3e2eca8d8cb26332c3fa79db4c186b.setIcon(icon_1f3618545a608078511901381e770a24);
+        
+    
+        var popup_4a3375f8f702a7a404756bfc45ae6ef3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5a760ed158c7a80ce966021d94cf77d9 = $(`<div id="html_5a760ed158c7a80ce966021d94cf77d9" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Camden</a><br><br>Independents<br><br>Contact:<br>Chris Chudley<br>chrischudley@outlook.com</div>`)[0];
+                popup_4a3375f8f702a7a404756bfc45ae6ef3.setContent(html_5a760ed158c7a80ce966021d94cf77d9);
+            
+        
+
+        marker_3b3e2eca8d8cb26332c3fa79db4c186b.bindPopup(popup_4a3375f8f702a7a404756bfc45ae6ef3)
+        ;
+
+        
+    
+    
+            marker_3b3e2eca8d8cb26332c3fa79db4c186b.bindTooltip(
+                `<div>
+                     Camden
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0e01735727f2bfbcee84269aa2d9fa47 = L.marker(
+                [52.6368778, -1.1397592],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_2ddb467c3e967f392ad89653225cd864 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0e01735727f2bfbcee84269aa2d9fa47.setIcon(icon_2ddb467c3e967f392ad89653225cd864);
+        
+    
+        var popup_bb5f53273b64e15abea7e3a04758e756 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6889b4f1fa58a76422a75e083f5bb3e7 = $(`<div id="html_6889b4f1fa58a76422a75e083f5bb3e7" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Leicester</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_bb5f53273b64e15abea7e3a04758e756.setContent(html_6889b4f1fa58a76422a75e083f5bb3e7);
+            
+        
+
+        marker_0e01735727f2bfbcee84269aa2d9fa47.bindPopup(popup_bb5f53273b64e15abea7e3a04758e756)
+        ;
+
+        
+    
+    
+            marker_0e01735727f2bfbcee84269aa2d9fa47.bindTooltip(
+                `<div>
+                     Leicester
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1e9e2031369ddcf776b35519de0f6f35 = L.marker(
+                [54.597285, -5.93012],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_be5e591d5c4c5fa98c92ad5c28a61f45 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1e9e2031369ddcf776b35519de0f6f35.setIcon(icon_be5e591d5c4c5fa98c92ad5c28a61f45);
+        
+    
+        var popup_af88fcc9f3b50961d79f7c2e8ae32431 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_178dd8763d24b4c84a9278f78230c312 = $(`<div id="html_178dd8763d24b4c84a9278f78230c312" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Belfast</a><br><br>Community<br><br>Contact:<br>goose<br>nan</div>`)[0];
+                popup_af88fcc9f3b50961d79f7c2e8ae32431.setContent(html_178dd8763d24b4c84a9278f78230c312);
+            
+        
+
+        marker_1e9e2031369ddcf776b35519de0f6f35.bindPopup(popup_af88fcc9f3b50961d79f7c2e8ae32431)
+        ;
+
+        
+    
+    
+            marker_1e9e2031369ddcf776b35519de0f6f35.bindTooltip(
+                `<div>
+                     Belfast
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_491bcc9a800384d218c8ab48f2c22c9d = L.marker(
+                [52.486243, -1.890401],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_dfc29f1e38dfbc28915b25f0861ab451 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_491bcc9a800384d218c8ab48f2c22c9d.setIcon(icon_dfc29f1e38dfbc28915b25f0861ab451);
+        
+    
+        var popup_9e326a6db30681a27597a3014b5586fb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b078b0a3d9d1ccb25fca7db3c840371f = $(`<div id="html_b078b0a3d9d1ccb25fca7db3c840371f" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Birmingham</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_9e326a6db30681a27597a3014b5586fb.setContent(html_b078b0a3d9d1ccb25fca7db3c840371f);
+            
+        
+
+        marker_491bcc9a800384d218c8ab48f2c22c9d.bindPopup(popup_9e326a6db30681a27597a3014b5586fb)
+        ;
+
+        
+    
+    
+            marker_491bcc9a800384d218c8ab48f2c22c9d.bindTooltip(
+                `<div>
+                     Birmingham
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b1652b3c8c0d34b141df9bb8dc3364f4 = L.marker(
+                [55.953252, -3.188267],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_67287ea50b2f4a22c9b42ba1483dbd74 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b1652b3c8c0d34b141df9bb8dc3364f4.setIcon(icon_67287ea50b2f4a22c9b42ba1483dbd74);
+        
+    
+        var popup_607afc3276375ab81d286aae1a23a765 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e033462efee07360a784b5f769d1e9d6 = $(`<div id="html_e033462efee07360a784b5f769d1e9d6" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Edinburgh</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_607afc3276375ab81d286aae1a23a765.setContent(html_e033462efee07360a784b5f769d1e9d6);
+            
+        
+
+        marker_b1652b3c8c0d34b141df9bb8dc3364f4.bindPopup(popup_607afc3276375ab81d286aae1a23a765)
+        ;
+
+        
+    
+    
+            marker_b1652b3c8c0d34b141df9bb8dc3364f4.bindTooltip(
+                `<div>
+                     Edinburgh
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_95fb785f56ec04ebe4f2fc33baa3abb8 = L.marker(
+                [51.5901769, -0.0173437],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_6fc473f5390e0d707f83d8d26647fb3c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "blank", "iconColor": "white", "markerColor": "white", "prefix": "fa"}
+            );
+            marker_95fb785f56ec04ebe4f2fc33baa3abb8.setIcon(icon_6fc473f5390e0d707f83d8d26647fb3c);
+        
+    
+        var popup_2fe1efbfbdc90246637dc8f7934c5af3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9d504f918b3041a99170d624bcb72ce6 = $(`<div id="html_9d504f918b3041a99170d624bcb72ce6" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Walthamstow</a><br><br>Not Defined<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_2fe1efbfbdc90246637dc8f7934c5af3.setContent(html_9d504f918b3041a99170d624bcb72ce6);
+            
+        
+
+        marker_95fb785f56ec04ebe4f2fc33baa3abb8.bindPopup(popup_2fe1efbfbdc90246637dc8f7934c5af3)
+        ;
+
+        
+    
+    
+            marker_95fb785f56ec04ebe4f2fc33baa3abb8.bindTooltip(
+                `<div>
+                     Walthamstow
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e8f79e0ca2f07f5105118cec0527089c = L.marker(
+                [51.4703237, -0.0673872],
+                {}
+            ).addTo(feature_group_b00312d35149e8f17be32d6afc492f26);
+        
+    
+            var icon_77bee6913507c3b8db66a2dd2277fcdb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e8f79e0ca2f07f5105118cec0527089c.setIcon(icon_77bee6913507c3b8db66a2dd2277fcdb);
+        
+    
+        var popup_9bebe467b4509ff9cc8578bacf962640 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eae9d3a399bd35c1b0913df7354887f5 = $(`<div id="html_eae9d3a399bd35c1b0913df7354887f5" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Peckham</a><br><br>Community<br><br>Contact:<br>nan<br>nan</div>`)[0];
+                popup_9bebe467b4509ff9cc8578bacf962640.setContent(html_eae9d3a399bd35c1b0913df7354887f5);
+            
+        
+
+        marker_e8f79e0ca2f07f5105118cec0527089c.bindPopup(popup_9bebe467b4509ff9cc8578bacf962640)
+        ;
+
+        
+    
+    
+            marker_e8f79e0ca2f07f5105118cec0527089c.bindTooltip(
+                `<div>
+                     Peckham
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            feature_group_b00312d35149e8f17be32d6afc492f26.addTo(map_2572ec95c8182556fb718ab8f3b68ca7);
+        
+    
+            var feature_group_0804209d67461b8470f2bd0640d98a19 = L.featureGroup(
+                {}
+            );
+        
+    
+            var marker_c4f62a86417c700897bfc4967fb0faca = L.marker(
+                [52.598233, 1.728047],
+                {}
+            ).addTo(feature_group_0804209d67461b8470f2bd0640d98a19);
+        
+    
+            var icon_d9af63b2ca39e853ad414a84cdb9ac75 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c4f62a86417c700897bfc4967fb0faca.setIcon(icon_d9af63b2ca39e853ad414a84cdb9ac75);
+        
+    
+        var popup_28ee3bb2cbfe08b33087b53d55d497ba = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_868f7b59e76e567fbb21bac7397bf1e5 = $(`<div id="html_868f7b59e76e567fbb21bac7397bf1e5" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Great Yarmouth Community Organiser</a><br><br>Community<br><br>Contact:<br>Holly Nottcutt<br>nan</div>`)[0];
+                popup_28ee3bb2cbfe08b33087b53d55d497ba.setContent(html_868f7b59e76e567fbb21bac7397bf1e5);
+            
+        
+
+        marker_c4f62a86417c700897bfc4967fb0faca.bindPopup(popup_28ee3bb2cbfe08b33087b53d55d497ba)
+        ;
+
+        
+    
+    
+            marker_c4f62a86417c700897bfc4967fb0faca.bindTooltip(
+                `<div>
+                     Great Yarmouth Community Organiser
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8307b20d43b24c4a3ab21288d5b2af27 = L.marker(
+                [51.4611509, -0.0073177],
+                {}
+            ).addTo(feature_group_0804209d67461b8470f2bd0640d98a19);
+        
+    
+            var icon_e792161dcca7502e5870e63d4fc587e3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "skull-crossbones", "iconColor": "white", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_8307b20d43b24c4a3ab21288d5b2af27.setIcon(icon_e792161dcca7502e5870e63d4fc587e3);
+        
+    
+        var popup_5bb7a88c87e6b56f2ffcb7be5f1fad31 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ffeeafdaa6a20c9a0be0b5f35c588c41 = $(`<div id="html_ffeeafdaa6a20c9a0be0b5f35c588c41" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Lewisham Air Pollution</a><br><br>Pollution<br><br>Contact:<br>Ssega<br>ssega@lovessega.com</div>`)[0];
+                popup_5bb7a88c87e6b56f2ffcb7be5f1fad31.setContent(html_ffeeafdaa6a20c9a0be0b5f35c588c41);
+            
+        
+
+        marker_8307b20d43b24c4a3ab21288d5b2af27.bindPopup(popup_5bb7a88c87e6b56f2ffcb7be5f1fad31)
+        ;
+
+        
+    
+    
+            marker_8307b20d43b24c4a3ab21288d5b2af27.bindTooltip(
+                `<div>
+                     Lewisham Air Pollution
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_36364295228e312187059300a097a008 = L.marker(
+                [50.2660471, -5.0527125],
+                {}
+            ).addTo(feature_group_0804209d67461b8470f2bd0640d98a19);
+        
+    
+            var icon_755e560abe95af6281a8d2e9f4cf6ed0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_36364295228e312187059300a097a008.setIcon(icon_755e560abe95af6281a8d2e9f4cf6ed0);
+        
+    
+        var popup_85d17f35b58c28a95a972b2119b7e413 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1afab93b1adb7680faffcb485edadb1b = $(`<div id="html_1afab93b1adb7680faffcb485edadb1b" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Cornwall</a><br><br>Community<br><br>Contact:<br>Jackie Diffey<br>diffeyfamily5@gmail.com</div>`)[0];
+                popup_85d17f35b58c28a95a972b2119b7e413.setContent(html_1afab93b1adb7680faffcb485edadb1b);
+            
+        
+
+        marker_36364295228e312187059300a097a008.bindPopup(popup_85d17f35b58c28a95a972b2119b7e413)
+        ;
+
+        
+    
+    
+            marker_36364295228e312187059300a097a008.bindTooltip(
+                `<div>
+                     Cornwall
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_70f93f009ddfef8f12df55412c5b5d66 = L.marker(
+                [50.7155591, -3.530875],
+                {}
+            ).addTo(feature_group_0804209d67461b8470f2bd0640d98a19);
+        
+    
+            var icon_e350767ddc6aa38341d3dea74f1a6781 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_70f93f009ddfef8f12df55412c5b5d66.setIcon(icon_e350767ddc6aa38341d3dea74f1a6781);
+        
+    
+        var popup_6a83166868a6f0d2143498c4cd86dda0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca863050b41f1f0e0f840db4e1ce0090 = $(`<div id="html_ca863050b41f1f0e0f840db4e1ce0090" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Devon</a><br><br>Community<br><br>Contact:<br>Rachel Ward Lilley<br>rachel@rachelwl.co.uk</div>`)[0];
+                popup_6a83166868a6f0d2143498c4cd86dda0.setContent(html_ca863050b41f1f0e0f840db4e1ce0090);
+            
+        
+
+        marker_70f93f009ddfef8f12df55412c5b5d66.bindPopup(popup_6a83166868a6f0d2143498c4cd86dda0)
+        ;
+
+        
+    
+    
+            marker_70f93f009ddfef8f12df55412c5b5d66.bindTooltip(
+                `<div>
+                     Devon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            feature_group_0804209d67461b8470f2bd0640d98a19.addTo(map_2572ec95c8182556fb718ab8f3b68ca7);
+        
+    
+            var feature_group_795f08aca1944be2bae7611096a1f1e6 = L.featureGroup(
+                {}
+            );
+        
+    
+            var marker_334b981306d9b6c3e64183709f0c4935 = L.marker(
+                [54.978252, -1.61778],
+                {}
+            ).addTo(feature_group_795f08aca1944be2bae7611096a1f1e6);
+        
+    
+            var icon_008e5d7d5f916ba67d3257284a3f2789 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_334b981306d9b6c3e64183709f0c4935.setIcon(icon_008e5d7d5f916ba67d3257284a3f2789);
+        
+    
+        var popup_f15f815490f45da28ac1b04cb1e5b8ff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0c93268bf352e2d2f8ec6ab32e66d923 = $(`<div id="html_0c93268bf352e2d2f8ec6ab32e66d923" style="width: 100.0%; height: 100.0%;"><a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II target="_blank">Newcastle</a><br><br>Community<br><br>Contact:<br>Kate Mukungu<br>kate@riversidechp.org.uk</div>`)[0];
+                popup_f15f815490f45da28ac1b04cb1e5b8ff.setContent(html_0c93268bf352e2d2f8ec6ab32e66d923);
+            
+        
+
+        marker_334b981306d9b6c3e64183709f0c4935.bindPopup(popup_f15f815490f45da28ac1b04cb1e5b8ff)
+        ;
+
+        
+    
+    
+            marker_334b981306d9b6c3e64183709f0c4935.bindTooltip(
+                `<div>
+                     Newcastle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            feature_group_795f08aca1944be2bae7611096a1f1e6.addTo(map_2572ec95c8182556fb718ab8f3b68ca7);
+        
+    
+
+            L.control.groupedLayers(
+                null,
+                {
+                    "Status" : {
+                        "Cold" : feature_group_412cbf8c265685175724af168bbf71f6,
+                        "Completed" : feature_group_e7d8bfedb4b2b5b19309fa80a7997bfd,
+                        "Warm" : feature_group_b00312d35149e8f17be32d6afc492f26,
+                        "Frozen" : feature_group_0804209d67461b8470f2bd0640d98a19,
+                        "Cancelled" : feature_group_795f08aca1944be2bae7611096a1f1e6,
+                    },
+                },
+                {"collapsed": false},
+            ).addTo(map_2572ec95c8182556fb718ab8f3b68ca7);
+
+        
+</script>
+</html>
