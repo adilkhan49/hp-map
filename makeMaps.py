@@ -3,10 +3,11 @@
 import pandas as pd
 import folium
 from folium.plugins import GroupedLayerControl
+import duckdb
 
 # Read data with locations
-data_file = 'pops.csv'
-filterby = 'Status'
+data_file = 'Pop Sheet - Pops.csv'
+filterby = 'Upcoming'
 
 
 legend = {
@@ -40,11 +41,142 @@ legend = {
     }
 
 
-locations_df = pd.read_csv(data_file)
-locations_df = locations_df[locations_df.Latitude.notna()]
-locations_df['Topic'] = locations_df['Topic'].fillna('Not Defined')
+pops_df = pd.read_csv(data_file)
+# pops_df["assembly_date"] = pd.to_datetime(pops_df["Assembly Date"],errors='coerce')
+# locations_df = locations_df[locations_df.Latitude.notna()]
+# locations_df['Topic'] = locations_df['Topic'].fillna('Not Defined')
 
-topics = locations_df['Topic'].unique()
+pop_agg = duckdb.query(
+"""
+    create or replace table pops as                   
+        select 
+            "Local / Collaboration" as name,
+            "Topic" topic,
+            "Status" status,
+            "Latitude" latitude,
+            "Longitude" longitude,
+            "Local contact" contact_name,
+            "Local Contact Email" contact_email,   
+            "Assembly Date" assembly_date,
+            try_strptime("Assembly Date", '%d-%b-%Y') as "ass_date",
+            "Status" as status,
+            "Venue Address" as address,
+            "Description for Interactive Map" description,
+            "Link to Action Network Site" as link,
+            "Assembly Start Time" start_time,
+        from pops_df
+        where "Status" in ('Warm','Completed');
+
+    create or replace table all_topics as
+        select 
+            name,
+            list(distinct case when topic is null then 'Not Defined' else topic end order by topic) topics,
+        from pops
+        group by 1              
+;           
+
+
+    create or replace table loc as 
+        select
+            name,
+            latitude,
+            longitude, 
+        from pops
+        where latitude is not null and longitude is not null
+        qualify row_number() over (partition by name order by ass_date desc) = 1
+    ;
+
+    create or replace table address as 
+        select
+            name,
+            address,
+        from pops
+        where address is not null
+        qualify row_number() over (partition by name order by status desc, ass_date desc) = 1
+    ;
+
+    
+    create or replace table description as 
+        select
+            name,
+            description,
+        from pops
+        where description is not null
+        qualify row_number() over (partition by name order by status desc, ass_date desc) = 1
+    ;
+                          
+                      
+    create or replace table last_pop as
+        select 
+            name,
+            topic,
+            strftime(ass_date,'%-d %B %Y') as assembly_date,
+        from pops
+        where status = 'Completed'
+        qualify row_number() over (partition by name order by ass_date desc) = 1
+
+;
+    create or replace table next_pop as
+        select 
+            name,
+            topic,
+            ass_date,
+            description,
+            link,
+            start_time,
+            case when ass_date is not null then strftime(ass_date,'%-d %B %Y') else assembly_date end as assembly_date,
+        from pops
+        where status = 'Warm'
+        qualify row_number() over (partition by name order by ass_date ) = 1
+    ;
+
+    create or replace table past_pops as
+        select 
+            name,
+            count(*)::int num,
+        from pops
+        where status = 'Completed'
+        group by 1              
+;           
+
+create or replace table pop_agg as 
+    select 
+        all_topics.name,
+        coalesce(past_pops.num,0) as num_past_pops,
+        coalesce(last_pop.topic,next_pop.topic,'Not Defined') as topic,
+        all_topics.topics as all_topics,
+        loc.Latitude,
+        loc.longitude,
+        next_pop.topic as next_topic,
+        next_pop.ass_date,
+        next_pop.assembly_date next_assembly_date,
+        next_pop.start_time,
+        next_pop.link,
+        case when next_pop.name is not null then 'Yes' else 'No' end as "Upcoming",
+        last_pop.assembly_date as last_assembly_date,
+        address.address,
+        description.description,
+    from all_topics
+    left join past_pops on all_topics.name = past_pops.name
+    left join last_pop on all_topics.name = last_pop.name
+    left join next_pop on all_topics.name = next_pop.name
+    left join loc on all_topics.name = loc.name
+    left join address on all_topics.name = address.name
+    left join description on all_topics.name = description.name
+
+;
+                      
+select * from pop_agg where latitude is not null
+;
+
+
+ """).to_df()
+
+
+# print(duckdb.query("select * from pop_agg where name like 'South Norwood'"))
+
+
+topics = pop_agg.topic.unique()
 
 # Initialize the map
 m = folium.Map(location=[54.103, -2.912], zoom_start=6,min_zoom=6)
@@ -56,23 +188,64 @@ m.fit_bounds(uk_bounds)
 # Create a FeatureGroup for each type
 
 type_groups = {}
-for type_ in locations_df[filterby].unique():
+for type_ in pop_agg[filterby].unique():
     type_groups[type_] = folium.FeatureGroup(name=type_,show=True)
 
 
 # Add points to the map and group them by type
-for index, row in locations_df.iterrows():
-    name = row["Local / Collaboration"]
+for index, row in pop_agg.iterrows():
+    name = row['name']
     link = "https://fr.wikipedia.org/wiki/Place_Guillaume_II"
-    topic = row["Topic"]
+    topic = row.topic
     colour = legend[topic]["colour"] if topic in legend.keys() else 'white'
     if colour not in ['darkpurple', 'white', 'cadetblue', 'red', 'beige', 'purple', 'lightblue', 'lightgray', 'lightgreen', 'green', 'darkblue', 'pink', 'black', 'gray', 'lightred', 'orange', 'darkred', 'darkgreen', 'blue']:
         print(colour)
     icon = legend[topic]["icon"] if topic in legend.keys() else 'blank'
-    popup_text = f"""<a href={link} target="_blank">{name}</a><br><br>{topic}<br><br>Contact:<br>{row["Local contact"]}<br>{row["Local Contact Email"]}"""
+    # popup_text = f"""<a href={link} target="_blank">{name}</a><br><br>{topic}<br><br>Contact:<br>{row.contact_name}<br>{row.contact_email}"""
+    
+    popup_html = f"""
+    <head>
+        <style>
+            td{{padding-right: 10px;}}
+            tr{{vertical-align:top;}}
+        </style>
+    </head>
+    <h4>{name}</h4>"""
+    popup_html += "<table>"
+    popup_html += f"""<tr><td>Topic</td><td>{topic}</td><tr>"""
+    if len(row.all_topics)>1:
+        other_topics = ', '.join([t for t in row.all_topics if t!=topic])
+        popup_html += f"""<tr><td>Other Topics</td><td>{other_topics}</td><tr>"""
+    popup_html += f"""<tr><td>Completed</td><td>{int(row.num_past_pops)}</td><tr>"""
+    # if row.contact_name != None:
+    #     popup_html += f"""<tr><td>Contact: </td><td>{row.contact_name}</td><tr>"""
+    if row.Upcoming != 'No':
+        next_date = row.next_assembly_date 
+        if row.start_time:
+            next_date += ' @ ' + row.start_time
+        if row.link:
+            next_assembly_date = f"""<a href={row.link} target="_blank">{next_date}</a>"""
+        else:
+            next_assembly_date = row.next_assembly_date
+        popup_html += f"""<tr><td>Next Pop</td><td>{next_assembly_date}</td><tr>"""
+    if row.last_assembly_date != None:
+        popup_html += f"""<tr><td>Last Pop</td><td>{row.last_assembly_date}</td><tr>"""
+    if row.address != None:
+        popup_html += f"""<tr><td>Address</td><td>{row.address}</td><tr>"""
+    if row.description != None:
+        popup_html += f"""<tr><td>Description</td><td>{row.description}</td><tr>"""
+        popup_width = 400
+    else:
+        popup_width= 250
+    popup_html += "</table>"
+    iframe = folium.IFrame(popup_html)
+    popup = folium.Popup(iframe,
+                        min_width=popup_width,
+                        max_width=popup_width
+                        )
     marker = folium.Marker(
-        [row['Latitude'], row['Longitude']], 
-        popup=popup_text,
+        [row.latitude, row.longitude], 
+        popup=popup,
         tooltip = name,
         icon=folium.Icon(icon=icon, prefix='fa',color=colour)
     )
@@ -99,6 +272,35 @@ legend_html = f'''
      '''
 m.get_root().html.add_child(folium.Element(legend_html))
 
+totals = duckdb.query("""
+with t as (
+    select status, count(*) as count from pops group by status
+)
+SELECT *
+FROM (
+    PIVOT t
+    ON status
+    USING max(count)
+)
+ """).to_df().to_dict('records')[0]
+print(totals)
+totals_html = f'''
+     <div style="position: fixed; top: 10px; left: 80px; z-index:9999; font-size: 25px; background-color: white; padding: 10px; border: 1px solid black">
+        <table>
+            <tr>
+                <td style="padding-right: 10px">Completed</td>
+                <td>{totals['Completed']}</td>
+            </tr>
+            <tr>
+                <td style="padding-right: 10px">Upcoming</td>
+                <td>{totals['Warm']}</td>
+            </tr>
+        </table>            
+    </div>
+    </div>
+     '''
+m.get_root().html.add_child(folium.Element(totals_html))
+
 # Save the map as an HTML file
-m.save('map_v1.html')
+m.save('map.html')
 
