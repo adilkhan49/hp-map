@@ -217,8 +217,6 @@ for index, row in pop_agg.iterrows():
         other_topics = ', '.join([t for t in row.all_topics if t!=topic])
         popup_html += f"""<tr><td>Other Topics</td><td>{other_topics}</td><tr>"""
     popup_html += f"""<tr><td>Completed</td><td>{int(row.num_past_pops)}</td><tr>"""
-    # if row.contact_name != None:
-    #     popup_html += f"""<tr><td>Contact: </td><td>{row.contact_name}</td><tr>"""
     if row.Upcoming != 'No':
         next_date = row.next_assembly_date 
         if row.start_time:
@@ -285,7 +283,7 @@ FROM (
  """).to_df().to_dict('records')[0]
 print(totals)
 totals_html = f'''
-     <div style="position: fixed; top: 10px; left: 80px; z-index:9999; font-size: 25px; background-color: white; padding: 10px; border: 1px solid black">
+     <div style="position: fixed; top: 15px; left: 80px; z-index:9999; font-size: 25px; background-color: white; padding: 10px; border: 1px solid black">
         <table>
             <tr>
                 <td style="padding-right: 10px">Completed</td>
