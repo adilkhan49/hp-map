@@ -264,7 +264,7 @@ legend_items = '\n'.join([
          for k,v in legend.items()
 ])
 legend_html = f'''
-     <div style="position: fixed; bottom: 15px; left: 15px; z-index:9999; font-size: 1em;">
+     <div style="position: fixed; bottom: 15px; left: 15px; z-index:9999; line-height: 1em;">
     {legend_items}
      </div>
      '''
@@ -283,7 +283,7 @@ FROM (
  """).to_df().to_dict('records')[0]
 print(totals)
 totals_html = f'''
-     <div style="position: fixed; top: 15px; left: 80px; z-index:9999; font-size: 1.2em; background-color: white; padding: 10px; border: 1px solid black">
+     <div style="position: fixed; top: 15px; left: 80px; z-index:9999; line-height: 1.5em; background-color: white; padding: 10px; border: 1px solid black">
         <table>
             <tr>
                 <td style="padding-right: 10px">Completed</td>
