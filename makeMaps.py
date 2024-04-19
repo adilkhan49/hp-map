@@ -264,7 +264,7 @@ legend_items = '\n'.join([
          for k,v in legend.items()
 ])
 legend_html = f'''
-     <div style="position: fixed; bottom: 50px; left: 50px; z-index:9999; font-size: 14px;">
+     <div style="position: fixed; bottom: 15px; left: 15px; z-index:9999; font-size: 14px;">
     {legend_items}
      </div>
      '''
