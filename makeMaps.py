@@ -264,7 +264,7 @@ legend_items = '\n'.join([
          for k,v in legend.items()
 ])
 legend_html = f'''
-     <div style="position: fixed; bottom: 2%; left: 1%; z-index:9999; font-size:1.3vw; white-space: nowrap; text-overflow: ellipsis; ">
+     <div style="position: fixed; bottom: 2%; left: 1%; z-index:9999; font-size:2vw; white-space: nowrap; text-overflow: ellipsis; ">
     {legend_items}
      </div>
      '''
@@ -291,7 +291,7 @@ totals_html = f"""
         top: 0%; 
         left: 50px; 
         z-index:9999; 
-        font-size:2vw; 
+        font-size:2.5vw; 
         padding: 1%; 
         display: flex;
         color: green;
