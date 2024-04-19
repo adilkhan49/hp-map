@@ -299,7 +299,6 @@ totals_html = f"""
     .kpi-card {{
         margin: 5px;
         border: 1px solid black;
-        background-color: white; 
         padding: 1%; 
         }}
     .card-value {{
