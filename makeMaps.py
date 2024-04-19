@@ -182,7 +182,7 @@ topics = pop_agg.topic.unique()
 m = folium.Map(location=[54.103, -2.912], zoom_start=6,min_zoom=6)
 
 # Set the bounds for the map
-uk_bounds = [[47.959999905, -7.57216793459], [61, 1.68153079591]]  # Coordinates for the bounding box covering the UK
+uk_bounds = [[48, -7.57216793459], [60, 1.68153079591]]  # Coordinates for the bounding box covering the UK
 m.fit_bounds(uk_bounds)
 
 # Create a FeatureGroup for each type
@@ -260,11 +260,11 @@ GroupedLayerControl(
 ).add_to(m)
 
 legend_items = '\n'.join([
-         f'<p><span style="background-color: {v['colour']}; border-radius: 50%; padding: 5px; margin-right: 5px; display: inline-block;"></span>{k}</p>'
+         f'<div><span style="background-color: {v['colour']}; border-radius: 50%; padding: 5%; margin-right: 10%; display: inline-block; "></span>{k}</div>'
          for k,v in legend.items()
 ])
 legend_html = f'''
-     <div style="position: fixed; bottom: 1%; left: 15px; z-index:9999; font-size:1.3vw;">
+     <div style="position: fixed; bottom: 2%; left: 1%; z-index:9999; font-size:1.3vw; white-space: nowrap; text-overflow: ellipsis; ">
     {legend_items}
      </div>
      '''
@@ -282,21 +282,58 @@ FROM (
 )
  """).to_df().to_dict('records')[0]
 print(totals)
-totals_html = f'''
-     <div style="position: fixed; top: 12px; left: 50px; z-index:9999; font-size:2vw; background-color: white; padding: 10px; border: 1px solid black">
-        <table>
-            <tr>
-                <td style="padding-right: 10px">Completed</td>
-                <td>{totals['Completed']}</td>
-            </tr>
-            <tr>
-                <td style="padding-right: 10px">Upcoming</td>
-                <td>{totals['Warm']}</td>
-            </tr>
-        </table>            
-    </div>
-    </div>
-     '''
+
+totals_html = f"""
+<style>
+    .kpi-container {{
+        display: block;
+        position: fixed; 
+        top: 0%; 
+        left: 50px; 
+        z-index:9999; 
+        font-size:2vw; 
+        padding: 1%; 
+        display: flex;
+        color: green;
+        }}
+    .kpi-card {{
+        margin: 5px;
+        border: 1px solid black;
+        background-color: white; 
+        padding: 1%; 
+        }}
+    .card-value {{
+        text-align: center;
+        display: block;
+        font-size: 200%;  
+        }}
+    .card-text {{
+        text-align: center;
+        display: block;
+        font-size: 100%;
+        }}
+    .kpi-card:first-child {{
+        margin-left: 0;
+    }}
+    .kpi-card:last-child {{
+        margin-right: 0;
+    }}
+</style>
+
+<div class="kpi-container">
+  <div class="kpi-card">
+    <div class="card-value">{totals['Completed']}</div>
+    <div class="card-text">Complete</div>
+  </div>
+  <div class="kpi-card">
+    <div class="card-value">{totals['Warm']}</div>
+    <div class="card-text">Upcoming</div>
+  </div>
+</div>
+
+"""
+
+
 m.get_root().html.add_child(folium.Element(totals_html))
 
 # Save the map as an HTML file
