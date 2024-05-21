@@ -2,7 +2,7 @@ name: Map Refresh
 run-name: ${{ github.actor }} is refreshing the map 🚀
 on:
   schedule:
-    - cron: "55 22 * * *" 
+    - cron: "30 23 * * *" 
 
 permissions:
   contents: write
