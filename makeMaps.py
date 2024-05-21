@@ -92,8 +92,8 @@ pop_agg = duckdb.query(
     create or replace table loc as 
         select
             name,
-            latitude,
-            longitude, 
+            try_cast(latitude as FLOAT) latitude,
+            try_cast(longitude as FLOAT) longitude,
         from pops
         where latitude is not null and longitude is not null
         qualify row_number() over (partition by name order by ass_date desc) = 1
@@ -158,7 +158,7 @@ create or replace table pop_agg as
         coalesce(past_pops.num,0) as num_past_pops,
         coalesce(last_pop.topic,next_pop.topic,'Not Defined') as topic,
         all_topics.topics as all_topics,
-        loc.Latitude,
+        loc.latitude,
         loc.longitude,
         next_pop.topic as next_topic,
         next_pop.ass_date,
@@ -185,9 +185,7 @@ select * from pop_agg where latitude is not null
 
  """).to_df()
 
-
 # print(duckdb.query("select * from pop_agg where name like 'South Norwood'"))
-
 
 topics = pop_agg.topic.unique()
 
@@ -264,7 +262,6 @@ for index, row in pop_agg.iterrows():
         marker.add_to(type_groups[row[filterby]])
     except:
         print(row)
-        raise
 
 
 
