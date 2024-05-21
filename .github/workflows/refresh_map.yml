@@ -1,0 +1,33 @@
+name: Map Refresh
+run-name: ${{ github.actor }} is refreshing the map 🚀
+on:
+  workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  Map-Refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - uses: actions/checkout@v4
+      - name: Create .env file
+        run: |
+          echo "private_key_id=${{ secrets.PRIVATE_KEY_ID }}" >> .env
+          echo "private_key=${{ secrets.PRIVATE_KEY }}" >> .env
+          cat .env
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Run code
+        run: |
+          pip install pipenv
