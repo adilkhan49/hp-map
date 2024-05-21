@@ -32,21 +32,21 @@ jobs:
           echo "auth_provider_x509_cert_url=${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}" >> .env
           echo "client_x509_cert_url=${{ secrets.CLIENT_X509_CERT_URL }}" >> .env
           cat .env
-      # - name: Set up Python 3.10
-      #   uses: actions/setup-python@v5
-      #   with:
-      #     python-version: "3.10"
-      # - name: Install libraries
-      #   run: |
-      #     pip install pipenv
-      # - name: Run code
-      #   run: |
-      #     pipenv run python makeMaps.py
-      # - run: echo "🍏 This job's status is ${{ job.status }}."
-      # - name: Commit report
-      #   run: |
-      #     git config --global user.name 'Adil Khan'
-      #     git config --global user.email 'adilkhan49@hotmail.com'
-      #     git add map.html
-      #     git commit -m "Automated Map Refresh"
-      #     git push
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install libraries
+        run: |
+          pip install pipenv
+      - name: Run code
+        run: |
+          pipenv run python makeMaps.py
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Commit report
+        run: |
+          git config --global user.name 'Adil Khan'
+          git config --global user.email 'adilkhan49@hotmail.com'
+          git add map.html
+          git commit -m "Automated Map Refresh"
+          git push
