@@ -23,14 +23,14 @@ jobs:
         run: |
           echo "type=${{ secrets.TYPE }}" >> .env
           echo "project_id=${{ secrets.PROJECT_ID }}" >> .env
-          # echo "private_key_id=${{ secrets.PRIVATE_KEY_ID }}" >> .env
-          # echo "private_key=${{ secrets.PRIVATE_KEY }}" >> .env
-          # echo "client_email=${{ secrets.CLIENT_EMAIL }}" >> .env
-          # echo "client_id=${{ secrets.CLIENT_ID }}" >> .env
-          # echo "auth_uri=${{ secrets.AUTH_URI }}" >> .env
-          # echo "token_uri=${{ secrets.TOKEN_URI }}" >> .env
-          # echo "auth_provider_x509_cert_url=${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}" >> .env
-          # echo "client_x509_cert_url=${{ secrets.CLIENT_X509_CERT_URL }}" >> .env
+          echo "private_key_id=${{ secrets.PRIVATE_KEY_ID }}" >> .env
+          echo "private_key=${{ secrets.PRIVATE_KEY }}" >> .env
+          echo "client_email=${{ secrets.CLIENT_EMAIL }}" >> .env
+          echo "client_id=${{ secrets.CLIENT_ID }}" >> .env
+          echo "auth_uri=${{ secrets.AUTH_URI }}" >> .env
+          echo "token_uri=${{ secrets.TOKEN_URI }}" >> .env
+          echo "auth_provider_x509_cert_url=${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}" >> .env
+          echo "client_x509_cert_url=${{ secrets.CLIENT_X509_CERT_URL }}" >> .env
           cat .env
       # - name: Set up Python 3.10
       #   uses: actions/setup-python@v5
