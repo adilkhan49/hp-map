@@ -39,6 +39,7 @@ jobs:
       - name: Install libraries
         run: |
           pip install pipenv
+          pipenv install
       - name: Run code
         run: |
           pipenv run python makeMaps.py
