@@ -1,7 +1,7 @@
 name: Map Refresh
 run-name: ${{ github.actor }} is refreshing the map 🚀
 on:
-  workflow_dispatch:
+  workflow_dispatch
 permissions:
   contents: write
 jobs:
