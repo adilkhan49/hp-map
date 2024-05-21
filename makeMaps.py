@@ -5,15 +5,16 @@ import folium
 from folium.plugins import GroupedLayerControl
 import duckdb
 from utils import get_data
+from dotenv import dotenv_values
 
 # Refresh Data
-
-CREDENTIALS = 'credentials.json'
+CONFIG = dotenv_values(".env")
+CONFIG["private_key"] = CONFIG["private_key"].replace("||n||", "\n")
 SPREADSHEET_ID="1XVVdtHa9h10QZ1hoQ2gh5HGywcgT7X61UhgiI9-6JrY"
 WORKSHEET_NAME = 'Pops'
 TGT_CSV_FILENAME = 'Pop Sheet - Pops.csv'
 try:
-    get_data(CREDENTIALS,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME)
+    get_data(CONFIG,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME)
 except Exception as e: 
     print(e)
 
