@@ -21,13 +21,32 @@ jobs:
       - uses: actions/checkout@v4
       - name: Create .env file
         run: |
+          echo "type=${{ secrets.TYPE }}" >> .env
+          echo "project_id=${{ secrets.PROJECT_ID }}" >> .env
           echo "private_key_id=${{ secrets.PRIVATE_KEY_ID }}" >> .env
           echo "private_key=${{ secrets.PRIVATE_KEY }}" >> .env
+          echo "client_email=${{ secrets.CLIENT_EMAIL }}" >> .env
+          echo "client_id=${{ secrets.CLIENT_ID }}" >> .env
+          echo "auth_uri=${{ secrets.AUTH_URI }}" >> .env
+          echo "token_uri=${{ secrets.TOKEN_URI }}" >> .env
+          echo "auth_provider_x509_cert_url=${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}" >> .env
+          echo "client_x509_cert_url=${{ secrets.CLIENT_X509_CERT_URL }}" >>
           cat .env
       - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-      - name: Run code
+      - name: Install libraries
         run: |
           pip install pipenv
+      - name: Run code
+        run: |
+          pipenv run python makeMaps.py
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Commit report
+        run: |
+          git config --global user.name 'Adil Khan'
+          git config --global user.email 'adilkhan49@hotmail.com'
+          git add map.html
+          git commit -m "Automated Map Refresh"
+          git push
