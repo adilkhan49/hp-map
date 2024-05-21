@@ -6,7 +6,6 @@ def get_data(CONFIG,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME):
     sh = gc.open_by_key(SPREADSHEET_ID)
     ws = sh.worksheet(WORKSHEET_NAME)
     df = pd.DataFrame(ws.get_all_records())
-    df.to_csv(TGT_CSV_FILENAME,index=False)
     print(f'{len(df)} records saved to {TGT_CSV_FILENAME}')
     return df
 
