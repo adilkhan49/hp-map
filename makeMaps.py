@@ -18,7 +18,6 @@ try:
 except Exception as e: 
     print(e)
 
-
 # Read data with locations
 data_file = 'Pop Sheet - Pops.csv'
 filterby = 'Upcoming'
@@ -208,60 +207,66 @@ for type_ in pop_agg[filterby].unique():
 
 # Add points to the map and group them by type
 for index, row in pop_agg.iterrows():
-    name = row['name']
-    link = "https://fr.wikipedia.org/wiki/Place_Guillaume_II"
-    topic = row.topic
-    colour = legend[topic]["colour"] if topic in legend.keys() else 'white'
-    if colour not in ['darkpurple', 'white', 'cadetblue', 'red', 'beige', 'purple', 'lightblue', 'lightgray', 'lightgreen', 'green', 'darkblue', 'pink', 'black', 'gray', 'lightred', 'orange', 'darkred', 'darkgreen', 'blue']:
-        print(colour)
-    icon = legend[topic]["icon"] if topic in legend.keys() else 'blank'
-    # popup_text = f"""<a href={link} target="_blank">{name}</a><br><br>{topic}<br><br>Contact:<br>{row.contact_name}<br>{row.contact_email}"""
-    
-    popup_html = f"""
-    <head>
-        <style>
-            td{{padding-right: 10px;}}
-            tr{{vertical-align:top;}}
-        </style>
-    </head>
-    <h4>{name}</h4>"""
-    popup_html += "<table>"
-    popup_html += f"""<tr><td>Topic</td><td>{topic}</td><tr>"""
-    if len(row.all_topics)>1:
-        other_topics = ', '.join([t for t in row.all_topics if t!=topic])
-        popup_html += f"""<tr><td>Other Topics</td><td>{other_topics}</td><tr>"""
-    popup_html += f"""<tr><td>Completed</td><td>{int(row.num_past_pops)}</td><tr>"""
-    if row.Upcoming != 'No':
-        next_date = row.next_assembly_date 
-        if row.start_time:
-            next_date += ' @ ' + row.start_time
-        if row.link:
-            next_assembly_date = f"""<a href={row.link} target="_blank">{next_date}</a>"""
+    try:
+        name = row['name']
+        link = "https://fr.wikipedia.org/wiki/Place_Guillaume_II"
+        topic = row.topic
+        colour = legend[topic]["colour"] if topic in legend.keys() else 'white'
+        if colour not in ['darkpurple', 'white', 'cadetblue', 'red', 'beige', 'purple', 'lightblue', 'lightgray', 'lightgreen', 'green', 'darkblue', 'pink', 'black', 'gray', 'lightred', 'orange', 'darkred', 'darkgreen', 'blue']:
+            print(colour)
+        icon = legend[topic]["icon"] if topic in legend.keys() else 'blank'
+        # popup_text = f"""<a href={link} target="_blank">{name}</a><br><br>{topic}<br><br>Contact:<br>{row.contact_name}<br>{row.contact_email}"""
+        
+        popup_html = f"""
+        <head>
+            <style>
+                td{{padding-right: 10px;}}
+                tr{{vertical-align:top;}}
+            </style>
+        </head>
+        <h4>{name}</h4>"""
+        popup_html += "<table>"
+        popup_html += f"""<tr><td>Topic</td><td>{topic}</td><tr>"""
+        if len(row.all_topics)>1:
+            other_topics = ', '.join([t for t in row.all_topics if t!=topic])
+            popup_html += f"""<tr><td>Other Topics</td><td>{other_topics}</td><tr>"""
+        popup_html += f"""<tr><td>Completed</td><td>{int(row.num_past_pops)}</td><tr>"""
+        if row.Upcoming != 'No':
+            next_date = row.next_assembly_date 
+            if row.start_time:
+                next_date += ' @ ' + row.start_time
+            if row.link:
+                next_assembly_date = f"""<a href={row.link} target="_blank">{next_date}</a>"""
+            else:
+                next_assembly_date = row.next_assembly_date
+            popup_html += f"""<tr><td>Next Pop</td><td>{next_assembly_date}</td><tr>"""
+        if row.last_assembly_date != None:
+            popup_html += f"""<tr><td>Last Pop</td><td>{row.last_assembly_date}</td><tr>"""
+        if row.address != None:
+            popup_html += f"""<tr><td>Address</td><td>{row.address}</td><tr>"""
+        if row.description != None:
+            popup_html += f"""<tr><td>Description</td><td>{row.description}</td><tr>"""
+            popup_width = 400
         else:
-            next_assembly_date = row.next_assembly_date
-        popup_html += f"""<tr><td>Next Pop</td><td>{next_assembly_date}</td><tr>"""
-    if row.last_assembly_date != None:
-        popup_html += f"""<tr><td>Last Pop</td><td>{row.last_assembly_date}</td><tr>"""
-    if row.address != None:
-        popup_html += f"""<tr><td>Address</td><td>{row.address}</td><tr>"""
-    if row.description != None:
-        popup_html += f"""<tr><td>Description</td><td>{row.description}</td><tr>"""
-        popup_width = 400
-    else:
-        popup_width= 250
-    popup_html += "</table>"
-    iframe = folium.IFrame(popup_html)
-    popup = folium.Popup(iframe,
-                        min_width=popup_width,
-                        max_width=popup_width
-                        )
-    marker = folium.Marker(
-        [row.latitude, row.longitude], 
-        popup=popup,
-        tooltip = name,
-        icon=folium.Icon(icon=icon, prefix='fa',color=colour)
-    )
-    marker.add_to(type_groups[row[filterby]])
+            popup_width= 250
+        popup_html += "</table>"
+        iframe = folium.IFrame(popup_html)
+        popup = folium.Popup(iframe,
+                            min_width=popup_width,
+                            max_width=popup_width
+                            )
+        marker = folium.Marker(
+            [row.latitude, row.longitude], 
+            popup=popup,
+            tooltip = name,
+            icon=folium.Icon(icon=icon, prefix='fa',color=colour)
+        )
+        marker.add_to(type_groups[row[filterby]])
+    except:
+        print(row)
+        raise
+
+
 
 # Add all FeatureGroups to the map
 for type_, group in type_groups.items():
