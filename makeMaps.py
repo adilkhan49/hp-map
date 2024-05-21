@@ -14,7 +14,7 @@ SPREADSHEET_ID="1XVVdtHa9h10QZ1hoQ2gh5HGywcgT7X61UhgiI9-6JrY"
 WORKSHEET_NAME = 'Pops'
 TGT_CSV_FILENAME = 'Pop Sheet - Pops.csv'
 try:
-    get_data(CONFIG,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME)
+    pops_df = get_data(CONFIG,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME)
 except Exception as e: 
     print(e)
 
@@ -55,7 +55,7 @@ legend = {
     }
 
 
-pops_df = pd.read_csv(data_file)
+# pops_df = pd.read_csv(data_file)
 # pops_df["assembly_date"] = pd.to_datetime(pops_df["Assembly Date"],errors='coerce')
 # locations_df = locations_df[locations_df.Latitude.notna()]
 # locations_df['Topic'] = locations_df['Topic'].fillna('Not Defined')
