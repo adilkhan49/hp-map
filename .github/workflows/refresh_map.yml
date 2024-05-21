@@ -30,7 +30,7 @@ jobs:
           # echo "auth_uri=${{ secrets.AUTH_URI }}" >> .env
           # echo "token_uri=${{ secrets.TOKEN_URI }}" >> .env
           # echo "auth_provider_x509_cert_url=${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}" >> .env
-          # echo "client_x509_cert_url=${{ secrets.CLIENT_X509_CERT_URL }}" >>
+          # echo "client_x509_cert_url=${{ secrets.CLIENT_X509_CERT_URL }}" >> .env
           cat .env
       # - name: Set up Python 3.10
       #   uses: actions/setup-python@v5
