@@ -6,8 +6,6 @@ on:
       description: 'Tags'
       required: false
       type: string
-  schedule:
-    - cron: "48 23 * * *"  
 permissions:
   contents: write
 jobs:
