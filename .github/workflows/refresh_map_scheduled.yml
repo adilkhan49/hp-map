@@ -1,11 +1,6 @@
 name: Map Refresh
 run-name: ${{ github.actor }} is refreshing the map 🚀
 on:
-  workflow_dispatch:
-    tags:
-      description: 'Tags'
-      required: false
-      type: string
   schedule:
     - cron '0 0 * * *'
 permissions:
