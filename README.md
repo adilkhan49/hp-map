@@ -20,6 +20,13 @@ After code execution, `map.html` is refreshed and rendered online at https://git
 The rendered map is embedded using an iframe in Wordpress
 
 ```
-<iframe title="Humanity Project Map" src="https://raw.githack.com/adilkhan49/hp-map/main/map.html"  style="width:900px; height:900px; border: 1px solid black;"></iframe>
+<iframe
+   title="Humanity Project Map"
+   src="https://raw.githack.com/adilkhan49/hp-map/main/map.html"
+   style="
+      width:900px;
+      height:900px;
+      border: 1px solid black;"
+></iframe>
 ```
  
