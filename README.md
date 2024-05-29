@@ -51,7 +51,7 @@ The githack page is embedded using an iframe in Wordpress.
  
 ### Cost (As of May 2024)
 
-- If the repository is private then the Githun Action costs nothing. Otherwise see [here](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates) for per minute rates
+- If the repository is public then Githun Action are free of charge. Otherwise see [here](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates) for per minute rates
 - A Wordpress site costs between £3 and £51 per month
 
 
