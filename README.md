@@ -27,7 +27,7 @@ A YAML file in `.githhub/workflows/` clones the repository, adds secrets to a .e
 
 Updates to `map.html` are rendered on [githack](https://raw.githack.com/adilkhan49/hp-map/main/map.html) are picked up within minutes.
 
-### Embed
+## Embed
 
 The githack page is embedded using an iframe in Wordpress. 
 
