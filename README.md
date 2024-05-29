@@ -1,6 +1,6 @@
 # hp-map
 
-How to use Github Actions to refresh content on Wordpress?
+How to use Github Actions to refresh content on Wordpress
 
 
 Requirements:
@@ -11,9 +11,16 @@ Requirements:
 ## Set Up
 
 
-2. Fork this repository
-3. Generate Service Account credentials for Google Sheets https://stateful.com/blog/google-sheets-api-tutorial, download JSON credentials, and store in Secrets as key-value pairs
-4. 
+1. Clone this repository
+6. Generate Google Service Account credentials https://stateful.com/blog/google-sheets-api-tutorial
+2. Modify Python code as needed
+7. Store credentials in a .env file
+8. Change the workflow YAML to run `on: workflow_dispatch`
+9. Commit code to a Github Repo
+10. Upload the .env to Github Secrets as key-value pairs
+11. Navigate to Githubn/Actions to test the Workflow
+12. After debugging, edit the YAML to be triggered `on: schedule`
+
 
 ## Schedule
 
