@@ -90,11 +90,14 @@ pop_agg = duckdb.query(
 
 
     create or replace table loc as 
-        select
+        with x as (select
             name,
             try_cast(latitude as FLOAT) latitude,
             try_cast(longitude as FLOAT) longitude,
+            ass_date,
         from pops
+                   )
+        select name,latitude, longitude from x
         where latitude is not null and longitude is not null
         qualify row_number() over (partition by name order by ass_date desc) = 1
     ;
