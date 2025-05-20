@@ -17,6 +17,7 @@ try:
     pops_df = get_data(CONFIG,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME)
 except Exception as e: 
     print(e)
+    raise
 
 # Read data with locations
 data_file = 'Pop Sheet - Pops.csv'
