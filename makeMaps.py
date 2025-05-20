@@ -13,10 +13,8 @@ CONFIG["private_key"] = CONFIG["private_key"].replace("||n||", "\n")
 SPREADSHEET_ID="1XVVdtHa9h10QZ1hoQ2gh5HGywcgT7X61UhgiI9-6JrY"
 WORKSHEET_NAME = 'Pops'
 TGT_CSV_FILENAME = 'Pop Sheet - Pops.csv'
-try:
-    pops_df = get_data(CONFIG,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME)
-except Exception as e: 
-    print(e)
+
+pops_df = get_data(CONFIG,SPREADSHEET_ID,WORKSHEET_NAME,TGT_CSV_FILENAME)
 
 # Read data with locations
 data_file = 'Pop Sheet - Pops.csv'
