@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} is refreshing the map 🚀
 on:
   schedule:
     - cron: "30 23 * * *" 
+    - pull_request
 
 permissions:
   contents: write
